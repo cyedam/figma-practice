@@ -17,6 +17,10 @@
   min-width: 0;
 }
 
+.confirm-modal__title {
+  white-space: pre-line; /* 문구 안의 줄바꿈을 그대로 보여 준다. */
+}
+
 .confirm-modal__description {
   color: var(--color-text-primary);
 }

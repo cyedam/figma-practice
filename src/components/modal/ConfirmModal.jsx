@@ -9,10 +9,11 @@ import './ConfirmModal.css'
  * title, description: 제목과 설명문
  * rows: 확인 내용. [{ label, value }] 형태이며 없으면 숨긴다.
  * primaryLabel, onPrimary: 주요 버튼
+ * primaryVariant: 주요 버튼 종류. 기본은 청록(main-s), 대기 신청은 파랑(special-l)
  * secondaryLabel, onSecondary: 보조 버튼. 이름이 없으면 버튼 1개만 보인다.
  * open, onClose: 열림 여부와 닫을 때 실행할 동작
- * 보조 버튼이 있으면 열릴 때 초점을 보조 버튼에 둔다.
- * 보조 버튼에는 현재 작업을 잃지 않는 선택지(예: 계속 작성)를 넣는다.
+ * safeChoice: 열릴 때 초점을 둘 버튼. 현재 작업을 잃지 않는 쪽을 고른다.
+ *   기본은 보조 버튼('이어서 작성하기' 등)이고, 주요 버튼이 안전하면 'primary'를 준다.
  */
 function ConfirmModal({
   open,
@@ -22,8 +23,10 @@ function ConfirmModal({
   rows,
   primaryLabel,
   onPrimary,
+  primaryVariant = 'main-s',
   secondaryLabel,
   onSecondary,
+  safeChoice = 'secondary',
 }) {
   const titleId = useId()
   const primaryRef = useRef(null)
@@ -35,13 +38,16 @@ function ConfirmModal({
       open={open}
       onClose={onClose}
       labelledBy={titleId}
-      initialFocusRef={secondaryLabel ? secondaryRef : primaryRef}
+      closeOnBackdrop={false}
+      initialFocusRef={secondaryLabel && safeChoice === 'secondary' ? secondaryRef : primaryRef}
       className={`confirm-modal${isLarge ? ' confirm-modal--large' : ''}`}
     >
       <div className="confirm-modal__content">
         <div className="confirm-modal__header">
           <div className="confirm-modal__text">
-            <h3 id={titleId}>{title}</h3>
+            <h3 className="confirm-modal__title" id={titleId}>
+              {title}
+            </h3>
             {description && <p className="confirm-modal__description">{description}</p>}
           </div>
           <button
@@ -60,7 +66,7 @@ function ConfirmModal({
               {secondaryLabel}
             </Button>
           )}
-          <Button ref={primaryRef} variant="main-s" onClick={onPrimary}>
+          <Button ref={primaryRef} variant={primaryVariant} onClick={onPrimary}>
             {primaryLabel}
           </Button>
         </div>

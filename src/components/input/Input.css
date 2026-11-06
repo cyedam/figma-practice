@@ -74,6 +74,15 @@
   mask: url('../../assets/icons/icon-edit.svg') center no-repeat;
 }
 
+.input__text {
+  color: var(--color-text-primary);
+  font-family: var(--body-s-font-family), var(--font-family-fallback);
+  font-size: var(--body-s-font-size);
+  font-weight: var(--body-s-font-weight);
+  line-height: var(--body-s-line-height);
+  white-space: pre-line; /* 문구 안의 줄바꿈을 그대로 보여 준다. */
+}
+
 /* 박스형: 읽기 전용 */
 .input--box .input__field {
   min-height: var(--input-box-height);

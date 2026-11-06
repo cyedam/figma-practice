@@ -9,12 +9,14 @@ import './Tab.css'
  * icon: 'plus'(더보기), 'minus'(덜보기), 'search'(검색) 중 하나. 없으면 표시하지 않는다.
  * active: location-3depth의 선택 상태 (Figma: 3depth-active)
  * href: 있으면 링크(a), 없으면 버튼(button)으로 만든다.
+ * as: 누를 수 없는 제목으로 쓸 때 태그 이름을 준다. (예: 'h2')
  * 그 밖의 속성(onClick, aria-expanded 등)은 태그에 그대로 전달한다.
  */
-function Tab({ children, variant, icon, active = false, href, className = '', ...rest }) {
-  const Element = href ? 'a' : 'button'
-  const elementProps = href ? { href } : { type: 'button' }
-  const classNames = `tab tab--${variant} ${active ? 'tab--active' : ''} ${className}`
+function Tab({ children, variant, icon, active = false, href, as, className = '', ...rest }) {
+  const Element = as ?? (href ? 'a' : 'button')
+  const elementProps = as ? {} : href ? { href } : { type: 'button' }
+  const staticClass = as ? 'tab--static' : ''
+  const classNames = `tab tab--${variant} ${active ? 'tab--active' : ''} ${staticClass} ${className}`
     .replace(/\s+/g, ' ')
     .trim()
 

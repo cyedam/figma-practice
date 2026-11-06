@@ -4,8 +4,9 @@ import './ActionBox.css'
 /**
  * 안내와 버튼이 있는 회색 박스 (Figma: 박스)
  * title, description: 제목과 설명문. 설명문이 없으면 숨긴다.
- * actions: 버튼 목록. [{ label, onClick }]
+ * actions: 버튼 목록. [{ label, onClick, icon }]
  *   1개면 글자 옆에, 2개면 글자 아래에 놓인다. (Figma: 원버튼, 투버튼)
+ *   icon에 'phone', 'mail'을 주면 아이콘이 있는 라인 버튼이 된다.
  */
 function ActionBox({ title, description, actions }) {
   const layoutClass = actions.length > 1 ? 'action-box--stacked' : 'action-box--inline'
@@ -18,7 +19,12 @@ function ActionBox({ title, description, actions }) {
       </div>
       <div className="action-box__actions">
         {actions.map((action) => (
-          <Button key={action.label} variant="sub-s" onClick={action.onClick}>
+          <Button
+            key={action.label}
+            variant={action.icon ? 'line-l' : 'sub-s'}
+            icon={action.icon}
+            onClick={action.onClick}
+          >
             {action.label}
           </Button>
         ))}

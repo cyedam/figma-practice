@@ -6,7 +6,7 @@ import './Input.css'
 /**
  * 제목이 있는 입력 칸 (Figma: 인풋)
  * variant: Figma '기능' 속성과 대응한다.
- *   text(일반), password(비밀번호), box(박스형, 읽기 전용), counter(숫자버튼)
+ *   text(일반), password(비밀번호), box(박스형, 여러 줄 읽기 전용), counter(숫자버튼)
  * label: 제목
  * helperText: 입력 칸 아래 안내 문구. text, password에서만 보인다.
  * error: 오류 상태. text, password에서만 적용되며 안내 문구가 오류 문구로 표시된다.
@@ -45,6 +45,18 @@ function Input({
     )
   }
 
+  // 박스형은 고칠 수 없는 안내 글이라 입력 칸 대신 여러 줄 글로 보여 준다.
+  if (variant === 'box') {
+    return (
+      <div className={rootClass}>
+        <span className="input__label">{label}</span>
+        <div className="input__field">
+          <p className="input__text">{rest.value}</p>
+        </div>
+      </div>
+    )
+  }
+
   const isPassword = variant === 'password'
   const inputType = isPassword && !passwordVisible ? 'password' : 'text'
 
@@ -58,7 +70,6 @@ function Input({
           className="input__control"
           id={inputId}
           type={inputType}
-          readOnly={variant === 'box'}
           aria-invalid={hasError || undefined}
           aria-describedby={canShowMessage && helperText ? messageId : undefined}
           {...rest}

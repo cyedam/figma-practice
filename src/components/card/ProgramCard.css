@@ -19,6 +19,11 @@
   object-fit: cover;
 }
 
+/* 접수 마감 카드는 사진을 흐리게 보여 준다. */
+.program-card--closed .program-card__image img {
+  opacity: var(--image-dim-opacity);
+}
+
 /* 뱃지는 이미지 왼쪽 위에 겹친다. */
 .program-card__badges {
   position: absolute;

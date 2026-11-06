@@ -1,9 +1,9 @@
 /* 모달 바탕: 값은 tokens.css 변수만 사용한다. 기본은 Figma의 모바일 시트다. */
 
 .modal {
-  width: 100%;
+  width: calc(100% - var(--device-margin) * 2);
   max-width: 100%;
-  margin: auto 0 0;
+  margin: auto auto 0;
   padding: 0;
   border: 0;
   border-radius: var(--radius-l) var(--radius-l) 0 0;

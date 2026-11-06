@@ -15,7 +15,7 @@
   gap: var(--gap-s);
   width: 100%;
   height: var(--sheet-filter-view-height);
-  padding: 0 var(--padding-m);
+  padding: 0 var(--gap-l);
   overflow-y: auto;
 }
 

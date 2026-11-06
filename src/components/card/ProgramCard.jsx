@@ -22,6 +22,8 @@ function CardImage({ imageSrc, imageAlt }) {
  * vertical에서 쓰는 값
  * title, startDate, endDate, target, team, phone: 프로그램 정보
  * buttonLabel, onButtonClick: 버튼 이름과 누를 때 실행할 동작. 이름이 없으면 버튼을 숨긴다.
+ * buttonVariant: 버튼 종류. main-s(접수), sub-s(마감), special-urgent-s(대기)
+ * buttonDisabled: 버튼을 누를 수 없게 할지 여부
  *
  * horizontal에서 쓰는 값
  * info: ProgramInfo에 넘길 값
@@ -41,8 +43,11 @@ function ProgramCard({
   phone,
   buttonLabel,
   onButtonClick,
+  buttonVariant = 'main-s',
+  buttonDisabled = false,
   info,
 }) {
+  const closedClass = status === 'closed' ? ' program-card--closed' : ''
   const badges = showBadges && (
     <div className="program-card__badges">
       <Badge type={status} />
@@ -52,7 +57,7 @@ function ProgramCard({
 
   if (variant === 'image') {
     return (
-      <article className="program-card program-card--image">
+      <article className={`program-card program-card--image${closedClass}`}>
         <CardImage imageSrc={imageSrc} imageAlt={imageAlt} />
         {badges}
       </article>
@@ -61,7 +66,7 @@ function ProgramCard({
 
   if (variant === 'horizontal') {
     return (
-      <article className="program-card program-card--horizontal">
+      <article className={`program-card program-card--horizontal${closedClass}`}>
         <CardImage imageSrc={imageSrc} imageAlt={imageAlt} />
         <ProgramInfo {...info} />
         {badges}
@@ -70,7 +75,7 @@ function ProgramCard({
   }
 
   return (
-    <article className="program-card program-card--vertical">
+    <article className={`program-card program-card--vertical${closedClass}`}>
       <div>
         <CardImage imageSrc={imageSrc} imageAlt={imageAlt} />
         <div className="program-card__text">
@@ -89,7 +94,7 @@ function ProgramCard({
       </div>
       {buttonLabel && (
         <div className="program-card__footer">
-          <Button variant="main-s" onClick={onButtonClick}>
+          <Button variant={buttonVariant} disabled={buttonDisabled} onClick={onButtonClick}>
             {buttonLabel}
           </Button>
         </div>

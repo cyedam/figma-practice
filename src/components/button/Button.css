@@ -27,6 +27,16 @@
   mask: url('../../assets/icons/icon-plus-box.svg') center no-repeat;
 }
 
+.button__icon--phone {
+  -webkit-mask-image: url('../../assets/icons/icon-phone.svg');
+  mask-image: url('../../assets/icons/icon-phone.svg');
+}
+
+.button__icon--mail {
+  -webkit-mask-image: url('../../assets/icons/icon-mail.svg');
+  mask-image: url('../../assets/icons/icon-mail.svg');
+}
+
 /* 크기: 기본 너비에서 시작해 글자가 길면 최대 너비까지 늘어난다. */
 .button--main-s,
 .button--sub-s,

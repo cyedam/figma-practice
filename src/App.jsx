@@ -1,10 +1,21 @@
-import './App.css'
+import { Route, Routes } from 'react-router'
+import ApplyCompleteScreen from './screens/ApplyCompleteScreen'
+import ApplyScreen from './screens/ApplyScreen'
+import LookupScreen from './screens/LookupScreen'
+import MainScreen from './screens/MainScreen'
+import ProgramListScreen from './screens/ProgramListScreen'
+import ReservationScreen from './screens/ReservationScreen'
 
 function App() {
   return (
-    <main className="app">
-      <h1>수원문화재단 통합 온라인접수</h1>
-    </main>
+    <Routes>
+      <Route path="/" element={<MainScreen />} />
+      <Route path="/programs" element={<ProgramListScreen />} />
+      <Route path="/apply" element={<ApplyScreen />} />
+      <Route path="/apply/complete" element={<ApplyCompleteScreen />} />
+      <Route path="/lookup" element={<LookupScreen />} />
+      <Route path="/lookup/result" element={<ReservationScreen />} />
+    </Routes>
   )
 }
 

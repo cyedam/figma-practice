@@ -338,7 +338,14 @@
   --banner-slide-duration: 0.5s;
   --banner-slide-easing: ease-out;
 
-  /* ===== 큰 아이콘 크기: 닫기, 이전, 다음 ===== */
+  /* ===== 화면 조립: Figma 변수에 없지만 모바일 화면에서 쓰는 값 ===== */
+  --menu-panel-width: 17.5rem; /* 280px, 전체메뉴 */
+  --complete-icon-size: 3.75rem; /* 60px, 신청 완료 아이콘 */
+  --notice-width: 19.5625rem; /* 313px, 안내 글과 동의 칸 */
+  --select-sheet-list-height: 16.5rem; /* 264px, 선택 시트 목록 */
+  --image-dim-opacity: 50%; /* 접수 마감 카드 사진 */
+
+  /* ===== 큰 아이콘 크기: 닫기, 이전, 다음, 메뉴, 로고 ===== */
   --icon-size-l: 2rem; /* 32px */
 }
 

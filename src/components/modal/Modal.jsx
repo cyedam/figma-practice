@@ -8,6 +8,7 @@ import './Modal.css'
  * sheet: true면 화면 폭과 상관없이 아래에서 올라오는 시트로 보인다.
  * label: 화면 낭독기가 읽는 이름. 제목 요소가 있으면 labelledBy에 그 id를 넘긴다.
  * initialFocusRef: 열릴 때 초점을 둘 요소
+ * closeOnBackdrop: 바깥을 눌렀을 때 닫을지 여부. 확인창은 Figma처럼 닫지 않는다.
  * 브라우저의 dialog를 써서 모달 안에서만 Tab이 돌고, 닫으면 초점이 원래 자리로 돌아간다.
  */
 function Modal({
@@ -17,6 +18,7 @@ function Modal({
   label,
   labelledBy,
   initialFocusRef,
+  closeOnBackdrop = true,
   className = '',
   children,
 }) {
@@ -44,7 +46,7 @@ function Modal({
       }}
       onClick={(event) => {
         // dialog 자체가 눌렸다면 내용 바깥의 배경을 누른 것이다.
-        if (event.target === dialogRef.current) onClose?.()
+        if (closeOnBackdrop && event.target === dialogRef.current) onClose?.()
       }}
     >
       {open && children}

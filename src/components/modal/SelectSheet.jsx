@@ -21,7 +21,7 @@ function SelectSheet({ open, onClose, options, value, onChange, label }) {
               <li key={option.value}>
                 <button
                   type="button"
-                  className={`select-sheet__option${isSelected ? ' select-sheet__option--selected' : ''}`}
+                  className="select-sheet__option"
                   aria-current={isSelected || undefined}
                   onClick={() => onChange(option.value)}
                 >

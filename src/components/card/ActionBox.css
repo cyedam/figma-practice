@@ -48,5 +48,11 @@
 /* 버튼은 칸을 나눠 채우고, 테두리는 Figma처럼 두껍게 한다. */
 .action-box__actions .button {
   flex: 1;
+  min-width: 0;
   border-width: var(--border-width-2);
+}
+
+/* 아이콘 버튼은 글자 왼쪽에 아이콘이 오도록 순서를 그대로 쓴다. */
+.action-box__actions .button--line-l {
+  flex-direction: row;
 }

@@ -1,0 +1,19 @@
+/* 신청 내역: 값은 tokens.css 변수만 사용한다. */
+
+.reservation {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+  padding: 0 var(--device-margin);
+}
+
+.reservation__notices {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-l);
+  max-width: var(--notice-width);
+}
+
+.reservation__notices .input__label {
+  color: var(--color-primary);
+}

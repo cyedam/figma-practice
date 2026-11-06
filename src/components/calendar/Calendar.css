@@ -9,7 +9,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: var(--gap-s);
+  gap: 0 var(--gap-s);
   padding: var(--gap-s) var(--gap-m);
 }
 

@@ -1,0 +1,81 @@
+/* 화면 공통 틀: 값은 tokens.css 변수만 사용한다. */
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-s);
+  min-height: 100vh;
+  background-color: var(--color-bg-page);
+}
+
+.screen--flush {
+  gap: 0;
+}
+
+/* 헤더와 위치 탭은 스크롤해도 위에 붙어 있는다. */
+.screen__top {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.screen__content {
+  flex: 1;
+}
+
+/* 전체 메뉴: 오른쪽에 붙는 패널. Figma처럼 메뉴 글자는 모바일에서도 큰 크기를 쓴다. */
+.modal.screen__menu {
+  --main-menu-font-size: var(--text-size-19);
+  --main-submenu-font-size: var(--text-size-17);
+  width: var(--menu-panel-width);
+  height: 100%;
+  max-height: 100%;
+  margin: 0 0 0 auto;
+  border-radius: 0;
+}
+
+.screen__menu-top {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--gap-sm) var(--gap-m);
+  border-bottom: var(--border-width-1) solid var(--color-border);
+}
+
+.screen__menu-close {
+  width: var(--icon-size-l);
+  height: var(--icon-size-l);
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* 아이콘: 파일의 모양만 쓰고, 색은 토큰으로 입힌다. */
+.screen__menu-close-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-grey-500);
+  -webkit-mask: url('../assets/icons/icon-close.svg') center no-repeat;
+  mask: url('../assets/icons/icon-close.svg') center no-repeat;
+}
+
+/* 여러 화면이 함께 쓰는 소제목과 신청 요약 */
+.screen__section-title {
+  color: var(--color-point);
+}
+
+.screen__summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-s);
+}
+
+.screen__summary-title {
+  border-radius: var(--radius-s);
+}
+
+/* 요약 제목 아래 목록은 Figma처럼 위 선이 없다. */
+.screen__summary .list-box {
+  border-top: 0;
+}

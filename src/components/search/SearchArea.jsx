@@ -13,13 +13,19 @@ const DEFAULT_CATEGORIES = [{ value: 'all', label: '전체' }]
 /**
  * 검색영역 (Figma: 검색영역)
  * categoryOptions: 드롭다운 항목. [{ value, label }]
+ * onCategoryChange: 드롭다운에서 고르면 고른 value를 받아 실행한다.
  * defaultDetailOpen: 처음에 상세검색을 펼쳐 둘지 여부 (Figma: active)
  * onSearch: 검색하면 { category, keyword, filters }를 받아 실행한다.
  *   filters는 { status: ['접수중'], fee: [] } 처럼 묶음별로 선택된 글자 목록이다.
  * 상세검색은 태블릿부터 검색창 아래에 펼쳐지고, 모바일에서는 시트로 열린다.
  * 시트의 '검색' 버튼은 시트를 닫고 검색을 실행한다.
  */
-function SearchArea({ categoryOptions = DEFAULT_CATEGORIES, defaultDetailOpen = false, onSearch }) {
+function SearchArea({
+  categoryOptions = DEFAULT_CATEGORIES,
+  onCategoryChange,
+  defaultDetailOpen = false,
+  onSearch,
+}) {
   const [category, setCategory] = useState(categoryOptions[0]?.value ?? '')
   const [keyword, setKeyword] = useState('')
   const [filters, setFilters] = useState({})
@@ -47,7 +53,10 @@ function SearchArea({ categoryOptions = DEFAULT_CATEGORIES, defaultDetailOpen = 
                 label="검색 구분"
                 options={categoryOptions}
                 value={category}
-                onChange={setCategory}
+                onChange={(value) => {
+                  setCategory(value)
+                  onCategoryChange?.(value)
+                }}
               />
             </div>
             <SearchBox

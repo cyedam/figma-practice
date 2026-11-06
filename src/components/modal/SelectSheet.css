@@ -4,11 +4,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: var(--gap-s);
   padding: var(--gap-m) var(--gap-l) var(--gap-l);
 }
 
+/* 항목이 많으면 이 영역 안에서 위아래로 움직인다. */
 .select-sheet__list {
+  overflow-y: auto;
   width: 100%;
+  max-height: var(--select-sheet-list-height);
 }
 
 .select-sheet__option {
@@ -27,8 +31,7 @@
   cursor: pointer;
 }
 
-.select-sheet__option:active,
-.select-sheet__option--selected {
+.select-sheet__option:active {
   background-color: var(--color-bg-surface);
   color: var(--color-text-heading);
 }

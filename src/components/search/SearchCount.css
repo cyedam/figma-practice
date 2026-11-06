@@ -11,3 +11,9 @@
   font-weight: var(--body-m-font-weight);
   line-height: var(--body-m-line-height);
 }
+
+.search-count__number {
+  color: var(--color-point);
+  font-weight: var(--text-weight-700);
+  text-decoration: underline;
+}

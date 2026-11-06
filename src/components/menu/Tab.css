@@ -18,6 +18,11 @@
   cursor: pointer;
 }
 
+.tab--static {
+  white-space: pre-line; /* 제목 안의 줄바꿈을 그대로 보여 준다. */
+  cursor: default;
+}
+
 /* 아이콘: 파일의 모양만 쓰고, 색은 토큰으로 입힌다. */
 .tab__icon {
   flex-shrink: 0;
