@@ -1,0 +1,25 @@
+/* 소제목과 설명문: 값은 tokens.css 변수만 사용한다. 너비는 부모를 꽉 채운다. */
+
+.program-notice {
+  width: 100%;
+  word-break: keep-all; /* 한글 단어 중간에서 줄이 바뀌지 않게 한다. */
+}
+
+.program-notice__header {
+  padding: var(--gap-s) var(--gap-m);
+  background-color: var(--color-bg-surface);
+}
+
+.program-notice__title {
+  padding: var(--gap-s);
+}
+
+.program-notice__body {
+  padding: var(--gap-s) var(--gap-l);
+  border: var(--border-width-1) solid var(--color-bg-surface);
+  color: var(--color-text-primary);
+  font-family: var(--body-m-font-family), var(--font-family-fallback);
+  font-size: var(--body-m-font-size);
+  font-weight: var(--body-m-font-weight);
+  line-height: var(--body-m-line-height);
+}

@@ -1,0 +1,33 @@
+/* 상세검색 시트: 값은 tokens.css 변수만 사용한다. */
+
+.filter-sheet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-s);
+  padding: var(--gap-m) 0;
+}
+
+/* 내용이 길면 이 영역 안에서 위아래로 움직인다. */
+.filter-sheet__view {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-s);
+  width: 100%;
+  height: var(--sheet-filter-view-height);
+  padding: 0 var(--padding-m);
+  overflow-y: auto;
+}
+
+.filter-sheet__divider {
+  flex-shrink: 0;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-top: var(--border-width-1) solid var(--color-border);
+}
+
+.filter-sheet__action {
+  display: flex;
+  justify-content: center;
+}

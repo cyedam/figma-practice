@@ -1,0 +1,47 @@
+/* 검색 입력 칸: 값은 tokens.css 변수만 사용한다. 너비는 부모를 꽉 채운다. */
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-s);
+  width: 100%;
+  min-height: var(--input-height);
+  padding: var(--gap-s) var(--gap-m);
+  border: var(--border-width-1) solid var(--color-border);
+  border-radius: var(--radius-s);
+  background-color: var(--color-bg-page);
+}
+
+/* 아이콘: 파일의 모양만 쓰고, 색은 토큰으로 입힌다. */
+.search-box__icon {
+  flex-shrink: 0;
+  width: var(--spacing-24);
+  height: var(--spacing-24);
+  background-color: var(--color-grey-500);
+  -webkit-mask: url('../../assets/icons/icon-search.svg') center no-repeat;
+  mask: url('../../assets/icons/icon-search.svg') center no-repeat;
+}
+
+.search-box__input {
+  flex: 1;
+  width: 100%; /* 입력 칸의 기본 너비가 좁은 화면에서 부모를 밀어내지 않게 한다. */
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  color: var(--color-text-primary);
+  font-family: var(--form-input-font-family), var(--font-family-fallback);
+  font-size: var(--form-input-font-size);
+  font-weight: var(--form-input-font-weight);
+  line-height: var(--form-input-line-height);
+  appearance: none;
+}
+
+.search-box__input::placeholder {
+  color: var(--color-text-primary);
+}
+
+/* Figma에 없는 브라우저 기본 지우기 버튼을 숨긴다. */
+.search-box__input::-webkit-search-cancel-button {
+  appearance: none;
+}

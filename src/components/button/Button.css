@@ -1,0 +1,106 @@
+/* 버튼: 값은 tokens.css 변수만 사용한다. 상태는 Figma의 default, hover를 구현한다. */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--button-height);
+  padding: var(--gap-s);
+  border: 0;
+  border-radius: var(--radius-s);
+  font-family: var(--button-label-font-family), var(--font-family-fallback);
+  font-size: var(--button-label-font-size);
+  font-weight: var(--button-label-font-weight);
+  line-height: var(--button-label-line-height);
+  text-align: center;
+  word-break: keep-all; /* 한글 단어 중간에서 줄이 바뀌지 않게 한다. */
+  cursor: pointer;
+}
+
+/* 아이콘: 파일의 모양만 쓰고, 색은 버튼 글자색을 따른다. */
+.button__icon {
+  flex-shrink: 0;
+  width: var(--spacing-24);
+  height: var(--spacing-24);
+  background-color: currentColor;
+  -webkit-mask: url('../../assets/icons/icon-plus-box.svg') center no-repeat;
+  mask: url('../../assets/icons/icon-plus-box.svg') center no-repeat;
+}
+
+/* 크기: 기본 너비에서 시작해 글자가 길면 최대 너비까지 늘어난다. */
+.button--main-s,
+.button--sub-s,
+.button--special-urgent-s {
+  gap: var(--gap-s);
+  min-width: var(--button-width-s);
+  max-width: var(--button-max-width-s);
+}
+
+.button--main-l,
+.button--sub-l,
+.button--special-l,
+.button--special-urgent,
+.button--line-l {
+  gap: var(--spacing-6);
+  min-width: var(--button-width-l);
+  max-width: var(--button-max-width-l);
+}
+
+/* 메인 */
+.button--main-s,
+.button--main-l {
+  background-color: var(--color-primary);
+  color: var(--color-text-on);
+}
+
+.button--main-s:hover,
+.button--main-l:hover {
+  background-color: var(--color-menu);
+}
+
+/* 보조 */
+.button--sub-s,
+.button--sub-l {
+  border: var(--border-width-1) solid var(--color-primary);
+  background-color: var(--color-bg-page);
+  color: var(--color-primary);
+}
+
+.button--sub-s:hover,
+.button--sub-l:hover {
+  background-color: var(--color-bg-surface);
+}
+
+/* 특수L: 파랑 */
+.button--special-l {
+  background-color: var(--color-blue-300);
+  color: var(--color-text-on);
+}
+
+.button--special-l:hover {
+  background-color: var(--color-blue-350);
+}
+
+/* 특수-urgent S, L: 빨강 */
+.button--special-urgent-s,
+.button--special-urgent {
+  background-color: var(--color-red-550);
+  color: var(--color-text-on);
+}
+
+.button--special-urgent-s:hover,
+.button--special-urgent:hover {
+  background-color: var(--color-red-650);
+}
+
+/* 라인L: 아이콘이 글자 왼쪽에 온다. */
+.button--line-l {
+  flex-direction: row-reverse;
+  border: var(--border-width-2) solid var(--color-primary);
+  background-color: var(--color-bg-page);
+  color: var(--color-primary);
+}
+
+.button--line-l:hover {
+  background-color: var(--color-bg-surface);
+}

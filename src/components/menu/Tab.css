@@ -1,0 +1,163 @@
+/* 탭: 값은 tokens.css 변수만 사용한다. */
+
+/* 글자색은 --tab-color로 정해, 링크의 기본 hover 색이 끼어들지 않게 한다. */
+.tab,
+.tab:hover {
+  color: var(--tab-color);
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-s);
+  border: 0;
+  background-color: transparent;
+  text-align: left;
+  text-decoration: none;
+  word-break: keep-all; /* 한글 단어 중간에서 줄이 바뀌지 않게 한다. */
+  cursor: pointer;
+}
+
+/* 아이콘: 파일의 모양만 쓰고, 색은 토큰으로 입힌다. */
+.tab__icon {
+  flex-shrink: 0;
+  background-color: var(--color-grey-500);
+}
+
+.tab__icon--plus,
+.tab__icon--minus {
+  width: var(--tab-more-icon-size);
+  height: var(--tab-more-icon-size);
+}
+
+.tab__icon--plus {
+  -webkit-mask: url('../../assets/icons/icon-more-plus.svg') center no-repeat;
+  mask: url('../../assets/icons/icon-more-plus.svg') center no-repeat;
+}
+
+.tab__icon--minus {
+  -webkit-mask: url('../../assets/icons/icon-more-minus.svg') center no-repeat;
+  mask: url('../../assets/icons/icon-more-minus.svg') center no-repeat;
+}
+
+.tab__icon--search {
+  width: var(--spacing-24);
+  height: var(--spacing-24);
+  -webkit-mask: url('../../assets/icons/icon-search.svg') center no-repeat;
+  mask: url('../../assets/icons/icon-search.svg') center no-repeat;
+}
+
+/* 로케이션 */
+.tab--location-2depth,
+.tab--location-3depth {
+  justify-content: center;
+  width: 100%;
+  padding: var(--gap-s);
+  background-color: var(--color-bg-surface);
+  text-align: center;
+}
+
+.tab--location-2depth {
+  --tab-color: var(--color-text-primary);
+  border-bottom: var(--border-width-half) solid var(--color-border);
+  font-family: var(--main-menu-bold-font-family), var(--font-family-fallback);
+  font-size: var(--main-menu-bold-font-size);
+  font-weight: var(--main-menu-bold-font-weight);
+  line-height: var(--main-menu-bold-line-height);
+}
+
+.tab--location-3depth {
+  --tab-color: var(--color-text-primary);
+  min-height: var(--tab-location-3depth-height);
+  font-family: var(--main-submenu-font-family), var(--font-family-fallback);
+  font-size: var(--main-submenu-font-size);
+  font-weight: var(--main-submenu-font-weight);
+  line-height: var(--main-submenu-line-height);
+}
+
+.tab--location-3depth.tab--active {
+  --tab-color: var(--color-text-heading);
+  box-shadow: var(--inner-shadow);
+  font-family: var(--main-submenu-bold-font-family), var(--font-family-fallback);
+  font-size: var(--main-submenu-bold-font-size);
+  font-weight: var(--main-submenu-bold-font-weight);
+  line-height: var(--main-submenu-bold-line-height);
+}
+
+/* GNB */
+.tab--gnb-utility {
+  --tab-color: var(--color-text-heading);
+  justify-content: center;
+  padding: var(--gap-sm) var(--gap-m);
+  background-color: var(--color-bg-page);
+  font-family: var(--heading-utility-font-family), var(--font-family-fallback);
+  font-size: var(--heading-utility-font-size);
+  font-weight: var(--heading-utility-font-weight);
+  line-height: var(--heading-utility-line-height);
+}
+
+.tab--gnb-main {
+  --tab-color: var(--color-text-heading);
+  justify-content: center;
+  padding: var(--gap-m);
+  background-color: var(--color-bg-page);
+  font-family: var(--main-menu-font-family), var(--font-family-fallback);
+  font-size: var(--main-menu-font-size);
+  font-weight: var(--main-menu-font-weight);
+  line-height: var(--main-menu-line-height);
+}
+
+.tab--gnb-main:hover {
+  --tab-color: var(--color-primary);
+}
+
+.tab--gnb-sub {
+  --tab-color: var(--color-text-primary);
+  padding: var(--gap-s) var(--gap-m);
+  font-family: var(--main-submenu-font-family), var(--font-family-fallback);
+  font-size: var(--main-submenu-font-size);
+  font-weight: var(--main-submenu-font-weight);
+  line-height: var(--main-submenu-line-height);
+}
+
+.tab--gnb-leaf {
+  --tab-color: var(--color-text-muted);
+  padding: var(--gap-s) var(--gap-m);
+  font-family: var(--body-s-font-family), var(--font-family-fallback);
+  font-size: var(--body-s-font-size);
+  font-weight: var(--body-s-font-weight);
+  line-height: var(--body-s-line-height);
+}
+
+/* 모바일 메뉴 슬라이드 */
+.tab--mobile-1depth,
+.tab--mobile-search {
+  --tab-color: var(--color-text-primary);
+  width: 100%;
+  padding: var(--gap-sm) var(--gap-m);
+  border-bottom: var(--border-width-1) solid var(--color-border);
+  background-color: var(--color-bg-page);
+  font-family: var(--main-menu-font-family), var(--font-family-fallback);
+  font-size: var(--main-menu-font-size);
+  font-weight: var(--main-menu-font-weight);
+  line-height: var(--main-menu-line-height);
+}
+
+.tab--mobile-2depth {
+  --tab-color: var(--color-text-muted);
+  width: 100%;
+  padding: var(--gap-sm) var(--gap-l);
+  border-bottom: var(--border-width-1) solid var(--color-border);
+  background-color: var(--color-bg-surface);
+  font-family: var(--main-submenu-font-family), var(--font-family-fallback);
+  font-size: var(--main-submenu-font-size);
+  font-weight: var(--main-submenu-font-weight);
+  line-height: var(--main-submenu-line-height);
+}
+
+/* 모바일 메뉴는 글자가 칸을 채우고, 아이콘이 오른쪽 끝에 온다. */
+.tab--mobile-1depth .tab__label,
+.tab--mobile-2depth .tab__label,
+.tab--mobile-search .tab__label {
+  flex: 1;
+}

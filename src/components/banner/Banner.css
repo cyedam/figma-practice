@@ -1,0 +1,105 @@
+/* 메인 배너: 값은 tokens.css 변수만 사용한다. 기본은 Figma의 모바일 배너다. */
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-s);
+  width: 100%;
+  max-width: var(--banner-max-width-narrow);
+  margin-inline: auto;
+}
+
+/* 보이는 창. 안쪽 줄을 옆으로 옮겨 다음 내용을 보여 준다. */
+.banner__view {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.banner__view--image {
+  aspect-ratio: var(--banner-image-ratio-mobile);
+}
+
+.banner__track {
+  display: flex;
+  height: 100%;
+}
+
+.banner__track--animate {
+  transition: transform var(--banner-slide-duration) var(--banner-slide-easing);
+}
+
+.banner__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  height: 100%;
+}
+
+/* 이미지 전체를 덮는 '다음 배너' 버튼 */
+.banner__next-area {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* 데스크탑에서만 보이는 왼쪽 영역 */
+.banner__side {
+  display: none;
+}
+
+/* 태블릿: 양옆 여백을 두고 세로 이미지를 쓴다. */
+@media (min-width: 768px) {
+  .banner {
+    padding: 0 var(--gap-m);
+  }
+
+  .banner__view--image {
+    aspect-ratio: var(--banner-image-ratio-tablet);
+  }
+}
+
+/* 데스크탑: 왼쪽 정보와 조작 버튼, 오른쪽 가로 이미지 */
+@media (min-width: 1440px) {
+  .banner {
+    display: grid;
+    grid-template-columns: var(--banner-columns);
+    align-items: stretch;
+    gap: 0;
+    max-width: var(--banner-max-width);
+    padding: 0;
+  }
+
+  .banner__side {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-l);
+    min-width: 0;
+    padding-top: var(--banner-side-offset);
+  }
+
+  .banner__view--info {
+    flex: 1;
+    min-height: 0;
+    border-radius: var(--radius-l) 0 0 var(--radius-l);
+  }
+
+  .banner__view--info .banner-info {
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .banner__view--image {
+    aspect-ratio: var(--banner-image-ratio-desktop);
+    border-radius: var(--radius-l);
+  }
+
+  .banner__next-area,
+  .banner .banner-dots,
+  .banner__view--title {
+    display: none;
+  }
+}

@@ -1,0 +1,62 @@
+/* 달력 한 칸: 값은 tokens.css 변수만 사용한다. */
+
+.calendar-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-primary);
+}
+
+/* 연월 */
+.calendar-cell--title {
+  gap: var(--gap-s);
+  padding: var(--gap-s);
+  font-family: var(--cal-title-font-family), var(--font-family-fallback);
+  font-size: var(--cal-title-font-size);
+  font-weight: var(--cal-title-font-weight);
+  line-height: var(--cal-title-line-height);
+  white-space: nowrap;
+}
+
+/* 요일과 날짜 */
+.calendar-cell--weekday,
+.calendar-cell--date {
+  min-height: var(--calendar-cell-height);
+  padding: var(--gap-s) 0;
+  font-family: var(--cal-date-font-family), var(--font-family-fallback);
+  font-size: var(--cal-date-font-size);
+  font-weight: var(--cal-date-font-weight);
+  line-height: var(--cal-date-line-height);
+}
+
+.calendar-cell--sunday {
+  color: var(--color-red-550);
+}
+
+.calendar-cell--saturday {
+  color: var(--color-blue-350);
+}
+
+/* 날짜 */
+.calendar-cell--date {
+  width: 100%;
+  border: 0;
+  border-radius: var(--radius-s);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.calendar-cell--unavailable {
+  background-color: var(--color-grey-200);
+  color: var(--color-grey-600);
+  cursor: default;
+}
+
+.calendar-cell--waiting {
+  background-color: var(--color-primary-15);
+}
+
+/* 선택 테두리는 배경과 따로 적용되어 대기 날짜에도 함께 보인다. */
+.calendar-cell--selected {
+  border: var(--border-width-2) solid var(--color-primary);
+}

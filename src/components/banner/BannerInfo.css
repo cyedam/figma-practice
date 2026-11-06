@@ -1,0 +1,25 @@
+/* 배너 제목과 설명: 값은 tokens.css 변수만 사용한다. 너비는 부모를 꽉 채운다. */
+
+.banner-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+  width: 100%;
+  padding: var(--gap-m);
+  border-radius: var(--radius-l) 0 0 var(--radius-l);
+  background-color: var(--color-bg-surface);
+  word-break: keep-all; /* 한글 단어 중간에서 줄이 바뀌지 않게 한다. */
+}
+
+.banner-info__title {
+  color: var(--color-text-primary);
+}
+
+.banner-info__description {
+  color: var(--color-text-primary);
+  font-family: var(--body-s-font-family), var(--font-family-fallback);
+  font-size: var(--body-s-font-size);
+  font-weight: var(--body-s-font-weight);
+  line-height: var(--body-s-line-height);
+  white-space: pre-line; /* 문구 안의 줄바꿈을 그대로 보여 준다. */
+}

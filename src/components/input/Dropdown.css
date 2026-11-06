@@ -1,0 +1,86 @@
+/* 드롭다운: 값은 tokens.css 변수만 사용한다. 너비는 부모를 꽉 채운다. */
+
+.dropdown {
+  position: relative;
+  width: 100%;
+  word-break: keep-all; /* 한글 단어 중간에서 줄이 바뀌지 않게 한다. */
+}
+
+.dropdown__trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  width: 100%;
+  min-height: var(--input-height);
+  padding: var(--gap-s) var(--gap-m);
+  border: var(--border-width-1) solid var(--color-border);
+  border-radius: var(--radius-s);
+  background-color: var(--color-bg-page);
+  color: var(--color-text-primary);
+  font-family: var(--form-label-font-family), var(--font-family-fallback);
+  font-size: var(--form-label-font-size);
+  font-weight: var(--form-label-font-weight);
+  line-height: var(--form-label-line-height);
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown__trigger--open {
+  color: var(--color-text-muted);
+}
+
+.dropdown__text {
+  flex: 1;
+}
+
+/* 아이콘: 파일의 모양만 쓰고, 색은 토큰으로 입힌다. */
+.dropdown__icon {
+  flex-shrink: 0;
+  width: var(--spacing-24);
+  height: var(--spacing-24);
+  background-color: var(--color-grey-300);
+}
+
+.dropdown__icon--down {
+  -webkit-mask: url('../../assets/icons/icon-caret-down.svg') center no-repeat;
+  mask: url('../../assets/icons/icon-caret-down.svg') center no-repeat;
+}
+
+.dropdown__icon--up {
+  -webkit-mask: url('../../assets/icons/icon-caret-up.svg') center no-repeat;
+  mask: url('../../assets/icons/icon-caret-up.svg') center no-repeat;
+}
+
+/* 목록은 아래 내용을 밀어내지 않고 위에 겹쳐 열린다. */
+.dropdown__list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  background-color: var(--color-bg-page);
+}
+
+/* 항목: Figma의 데스크탑. 모바일 목록은 SelectSheet가 맡는다. */
+.dropdown__option {
+  display: block;
+  width: 100%;
+  min-height: var(--input-height);
+  padding: var(--gap-s) var(--gap-m);
+  border: 0;
+  border-bottom: var(--border-width-1) solid var(--color-border);
+  background-color: var(--color-bg-page);
+  color: var(--color-text-primary);
+  font-family: var(--form-input-font-family), var(--font-family-fallback);
+  font-size: var(--form-input-font-size);
+  font-weight: var(--form-input-font-weight);
+  line-height: var(--form-input-line-height);
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown__option:hover,
+.dropdown__option:active,
+.dropdown__option--selected {
+  background-color: var(--color-bg-surface);
+}

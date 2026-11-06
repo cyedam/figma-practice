@@ -1,0 +1,90 @@
+/* 인풋: 값은 tokens.css 변수만 사용한다. 너비는 부모를 꽉 채운다. */
+
+.input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  word-break: keep-all; /* 한글 단어 중간에서 줄이 바뀌지 않게 한다. */
+}
+
+.input__label {
+  padding: 0 var(--gap-ss);
+  color: var(--color-text-heading);
+  font-family: var(--heading-h4-font-family), var(--font-family-fallback);
+  font-size: var(--heading-h4-font-size);
+  font-weight: var(--heading-h4-font-weight);
+  line-height: var(--heading-h4-line-height);
+}
+
+.input__field {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-s);
+  min-height: var(--input-height);
+  padding: var(--gap-s) var(--gap-m);
+  border: var(--border-width-1) solid var(--color-border);
+  border-radius: var(--radius-s);
+  background-color: var(--color-bg-page);
+}
+
+.input__control {
+  flex: 1;
+  width: 100%; /* 입력 칸의 기본 너비가 좁은 화면에서 부모를 밀어내지 않게 한다. */
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  color: var(--color-text-primary);
+  font-family: var(--form-input-font-family), var(--font-family-fallback);
+  font-size: var(--form-input-font-size);
+  font-weight: var(--form-input-font-weight);
+  line-height: var(--form-input-line-height);
+}
+
+.input__control::placeholder {
+  color: var(--color-text-muted);
+}
+
+.input__message {
+  display: flex;
+  padding: 0 var(--gap-s);
+  color: var(--color-text-muted);
+  font-family: var(--form-helper-font-family), var(--font-family-fallback);
+  font-size: var(--form-helper-font-size);
+  font-weight: var(--form-helper-font-weight);
+  line-height: var(--form-helper-line-height);
+}
+
+/* 오류 */
+.input--error .input__field {
+  border: var(--border-width-2) solid var(--color-urgent-1);
+}
+
+.input__message--error {
+  color: var(--color-urgent-1);
+}
+
+/* 일반 오류: 수정 아이콘. 파일의 모양만 쓰고, 색은 토큰으로 입힌다. */
+.input__edit-icon {
+  flex-shrink: 0;
+  width: var(--spacing-24);
+  height: var(--spacing-24);
+  background-color: var(--color-grey-500);
+  -webkit-mask: url('../../assets/icons/icon-edit.svg') center no-repeat;
+  mask: url('../../assets/icons/icon-edit.svg') center no-repeat;
+}
+
+/* 박스형: 읽기 전용 */
+.input--box .input__field {
+  min-height: var(--input-box-height);
+  background-color: var(--color-bg-surface);
+}
+
+/* 숫자버튼: 제목 왼쪽, 인원 오른쪽 */
+.input--counter {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-s);
+}

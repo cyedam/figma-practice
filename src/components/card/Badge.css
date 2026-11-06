@@ -1,0 +1,63 @@
+/* 뱃지: 값은 tokens.css 변수만 사용한다. */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--badge-width-l);
+  height: var(--badge-height);
+  padding: 0 var(--gap-s);
+  border-radius: var(--radius-s);
+  font-family: var(--body-s-bold-font-family), var(--font-family-fallback);
+  font-size: var(--body-s-bold-font-size);
+  font-weight: var(--body-s-bold-font-weight);
+  line-height: var(--body-s-bold-line-height);
+  white-space: nowrap;
+}
+
+/* 카드1 */
+.badge--open {
+  background-color: var(--color-point);
+  color: var(--color-text-on);
+}
+
+.badge--waitlist {
+  background-color: var(--color-grey-100);
+  color: var(--color-text-primary);
+}
+
+.badge--closed {
+  background-color: var(--color-grey-600);
+  color: var(--color-text-on);
+}
+
+/* 카드2 */
+.badge--free,
+.badge--paid {
+  min-width: var(--badge-width-s);
+  color: var(--color-text-on);
+}
+
+.badge--free {
+  background-color: var(--color-badge-2);
+}
+
+.badge--paid {
+  background-color: var(--color-badge-1);
+}
+
+/* 캘린더 */
+.badge--selected {
+  border: var(--border-width-2) solid var(--color-primary);
+  color: var(--color-text-primary);
+}
+
+.badge--unavailable {
+  background-color: var(--color-grey-200);
+  color: var(--color-grey-600);
+}
+
+.badge--waiting {
+  background-color: var(--color-primary-15);
+  color: var(--color-text-primary);
+}

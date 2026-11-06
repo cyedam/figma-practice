@@ -1,0 +1,105 @@
+/* 배너 조작: 값은 tokens.css 변수만 사용한다. 너비는 부모를 꽉 채운다. */
+
+.banner-controls {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--banner-controls-gap);
+  width: 100%;
+  padding-right: var(--gap-sm);
+}
+
+.banner-controls__arrows {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.banner-controls__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--banner-control-size);
+  height: var(--banner-control-size);
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.banner-controls__arrow--prev {
+  border-radius: 0 0 0 var(--radius-l);
+  background-color: var(--color-bg-page);
+}
+
+.banner-controls__arrow--next {
+  border-radius: 0 var(--radius-l) 0 0;
+  background-color: var(--color-bg-footer-1);
+}
+
+/* 아이콘: 파일의 모양만 쓰고, 색은 토큰으로 입힌다. */
+.banner-controls__icon {
+  display: block;
+}
+
+.banner-controls__icon--prev,
+.banner-controls__icon--next {
+  width: var(--icon-size-l);
+  height: var(--icon-size-l);
+}
+
+.banner-controls__icon--prev {
+  background-color: var(--color-grey-500);
+  -webkit-mask: url('../../assets/icons/icon-prev.svg') center no-repeat;
+  mask: url('../../assets/icons/icon-prev.svg') center no-repeat;
+}
+
+.banner-controls__icon--next {
+  background-color: var(--color-text-on);
+  -webkit-mask: url('../../assets/icons/icon-next.svg') center no-repeat;
+  mask: url('../../assets/icons/icon-next.svg') center no-repeat;
+}
+
+.banner-controls__count {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--gap-ss);
+  min-width: 0;
+}
+
+.banner-controls__current {
+  color: var(--color-text-heading);
+  font-family: var(--heading-h1-font-family), var(--font-family-fallback);
+  font-size: var(--heading-h1-font-size);
+  font-weight: var(--heading-h1-font-weight);
+  line-height: var(--heading-h1-line-height);
+}
+
+.banner-controls__total {
+  color: var(--color-text-primary);
+  font-family: var(--main-submenu-font-family), var(--font-family-fallback);
+  font-size: var(--main-submenu-font-size);
+  font-weight: var(--main-submenu-font-weight);
+  line-height: var(--main-submenu-line-height);
+}
+
+.banner-controls__pause {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--banner-pause-size);
+  height: var(--banner-pause-size);
+  padding: var(--gap-ss);
+  border: var(--border-width-1) solid var(--color-border);
+  border-radius: var(--spacing-24);
+  background-color: var(--color-bg-page);
+  cursor: pointer;
+}
+
+.banner-controls__icon--pause {
+  width: var(--spacing-24);
+  height: var(--spacing-24);
+  background-color: var(--color-grey-500);
+  -webkit-mask: url('../../assets/icons/icon-pause.svg') center no-repeat;
+  mask: url('../../assets/icons/icon-pause.svg') center no-repeat;
+}

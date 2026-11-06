@@ -1,0 +1,361 @@
+/*
+ * 디자인 토큰
+ * 출처: Figma 파일 vHdYOApUUHSwrm6FWCcFD4의 변수(Variables)와 스타일
+ *
+ * - 기본값은 모바일이고, Figma 모드별로 값이 다른 토큰만 미디어쿼리에서 덮어쓴다.
+ * - rem 값은 Figma px 값을 16으로 나눈 값이다. (1rem = 16px 기준)
+ * - 주석의 px는 Figma 원본 값이다.
+ */
+
+:root {
+  /* ===== 컬러: 기본 팔레트 (Figma: Primitives/color) ===== */
+  --color-grey-50: #ffffff;
+  --color-grey-100: #f0f0f0;
+  --color-grey-200: #d0d0d0;
+  --color-grey-250: #bababa;
+  --color-grey-300: #989898;
+  --color-grey-400: #858585;
+  --color-grey-500: #666666;
+  --color-grey-600: #585858;
+  --color-grey-700: #484848;
+  --color-grey-800: #222222;
+  --color-grey-900: #000000;
+
+  --color-blue-100: #b6c8f0;
+  --color-blue-200: #93caff;
+  --color-blue-300: #1f71bf;
+  --color-blue-350: #145a9d;
+  --color-blue-400: #1487a7;
+  --color-blue-500: #0f7a93;
+  --color-blue-600: #005e78;
+  --color-blue-700: #094a6b;
+
+  --color-red-300: #ffa1a3;
+  --color-red-400: #d20d73;
+  --color-red-500: #fa4b25;
+  --color-red-550: #d43f42;
+  --color-red-600: #ec0000;
+  --color-red-650: #ac3235;
+
+  --color-yellow-500: #fffe7c;
+  --color-yellow-900: #008819;
+
+  /* ===== 컬러: 용도별 (Figma: color) ===== */
+  --color-primary: var(--color-blue-500);
+  --color-primary-10: rgb(15 122 147 / 10%); /* color/blue/500, 투명도 10% */
+  --color-menu: var(--color-blue-600);
+  --color-menu-click: var(--color-blue-400);
+  --color-point: var(--color-blue-700);
+  --color-border: var(--color-grey-200);
+  --color-accent-light-1: var(--color-yellow-500);
+  --color-accent-light-2: var(--color-blue-100);
+  --color-badge-1: var(--color-red-400);
+  --color-badge-2: var(--color-blue-300);
+  --color-urgent-1: var(--color-red-600);
+
+  --color-bg-page: var(--color-grey-50);
+  --color-bg-surface: var(--color-grey-100);
+  --color-bg-footer-1: var(--color-grey-700);
+  --color-bg-footer-2: var(--color-grey-600);
+  --color-bg-title: rgb(0 0 0 / 80%); /* color/grey/900, 투명도 80% */
+  --color-bg-button: var(--color-grey-200);
+  --color-bg-button-hover: var(--color-grey-250);
+
+  --color-text-primary: var(--color-grey-700);
+  --color-text-heading: var(--color-grey-800);
+  --color-text-muted: var(--color-grey-500);
+  --color-text-info: var(--color-grey-200);
+  --color-text-on: var(--color-grey-50);
+
+  /* ===== 컬러: 색상 스타일에만 있는 이름 (Figma: Paint Styles) ===== */
+  --color-bg-urgent: var(--color-urgent-1);
+  --color-bg-urgent-button: var(--color-red-550);
+  --color-bg-urgent-button-hover: var(--color-red-650);
+  --color-bg-badge-1: var(--color-badge-1);
+  --color-bg-badge-2: var(--color-badge-2);
+  --color-bg-badge-3: var(--color-red-300);
+  --color-bg-badge-4: var(--color-blue-200);
+  --color-bg-blue-hover: var(--color-blue-350);
+
+  /* ===== 컬러: Figma 변수에 없지만 화면에서 반복되는 값 ===== */
+  --color-primary-15: rgb(15 122 147 / 15%); /* 달력 대기 날짜, 대기예약 배지 */
+  --color-grey-500-80: rgb(102 102 102 / 80%); /* 벡터 선 */
+
+  /* ===== 폰트: 패밀리 (Figma: Text Styles) ===== */
+  --font-family-pretendard: 'Pretendard';
+  --font-family-fallback: system-ui, sans-serif; /* Figma에 없음, 글꼴을 못 불러올 때 사용 */
+
+  /* ===== 폰트: 크기 (Figma: text/size) ===== */
+  --text-size-11: 0.6875rem; /* 11px */
+  --text-size-12: 0.75rem; /* 12px */
+  --text-size-13: 0.8125rem; /* 13px */
+  --text-size-14: 0.875rem; /* 14px */
+  --text-size-15: 0.9375rem; /* 15px */
+  --text-size-16: 1rem; /* 16px */
+  --text-size-17: 1.0625rem; /* 17px */
+  --text-size-18: 1.125rem; /* 18px */
+  --text-size-19: 1.1875rem; /* 19px */
+  --text-size-20: 1.25rem; /* 20px */
+  --text-size-22: 1.375rem; /* 22px */
+  --text-size-23: 1.4375rem; /* 23px */
+  --text-size-24: 1.5rem; /* 24px */
+  --text-size-28: 1.75rem; /* 28px */
+  --text-size-32: 2rem; /* 32px */
+
+  /* 모드별로 값이 다른 크기: 모바일 기준 */
+  --text-size-h1: var(--text-size-24);
+  --text-size-h2: var(--text-size-22);
+  --text-size-menu: var(--text-size-17);
+  --text-size-submenu: var(--text-size-15);
+
+  /* ===== 폰트: 굵기 (Figma: text/weight) ===== */
+  --text-weight-400: 400;
+  --text-weight-600: 600;
+  --text-weight-700: 700;
+
+  /* ===== 폰트: 행간 (Figma: Text Styles, 150%) ===== */
+  --line-height-150: 1.5;
+
+  /* ===== 폰트: 텍스트 스타일 (Figma: Text Styles) ===== */
+  --heading-h1-font-family: var(--font-family-pretendard);
+  --heading-h1-font-size: var(--text-size-h1);
+  --heading-h1-font-weight: var(--text-weight-700);
+  --heading-h1-line-height: var(--line-height-150);
+
+  --heading-h2-font-family: var(--font-family-pretendard);
+  --heading-h2-font-size: var(--text-size-h2);
+  --heading-h2-font-weight: var(--text-weight-700);
+  --heading-h2-line-height: var(--line-height-150);
+
+  --heading-h3-font-family: var(--font-family-pretendard);
+  --heading-h3-font-size: var(--text-size-19);
+  --heading-h3-font-weight: var(--text-weight-700);
+  --heading-h3-line-height: var(--line-height-150);
+
+  --heading-h4-font-family: var(--font-family-pretendard);
+  --heading-h4-font-size: var(--text-size-17);
+  --heading-h4-font-weight: var(--text-weight-700);
+  --heading-h4-line-height: var(--line-height-150);
+
+  --heading-utility-font-family: var(--font-family-pretendard);
+  --heading-utility-font-size: var(--text-size-15);
+  --heading-utility-font-weight: var(--text-weight-400);
+  --heading-utility-line-height: var(--line-height-150);
+
+  --main-menu-font-family: var(--font-family-pretendard);
+  --main-menu-font-size: var(--text-size-menu);
+  --main-menu-font-weight: var(--text-weight-400);
+  --main-menu-line-height: var(--line-height-150);
+
+  --main-menu-bold-font-family: var(--font-family-pretendard);
+  --main-menu-bold-font-size: var(--text-size-menu);
+  --main-menu-bold-font-weight: var(--text-weight-700);
+  --main-menu-bold-line-height: var(--line-height-150);
+
+  --main-submenu-font-family: var(--font-family-pretendard);
+  --main-submenu-font-size: var(--text-size-submenu);
+  --main-submenu-font-weight: var(--text-weight-400);
+  --main-submenu-line-height: var(--line-height-150);
+
+  --main-submenu-bold-font-family: var(--font-family-pretendard);
+  --main-submenu-bold-font-size: var(--text-size-submenu);
+  --main-submenu-bold-font-weight: var(--text-weight-700);
+  --main-submenu-bold-line-height: var(--line-height-150);
+
+  --body-m-font-family: var(--font-family-pretendard);
+  --body-m-font-size: var(--text-size-17);
+  --body-m-font-weight: var(--text-weight-400);
+  --body-m-line-height: var(--line-height-150);
+
+  --body-s-font-family: var(--font-family-pretendard);
+  --body-s-font-size: var(--text-size-15);
+  --body-s-font-weight: var(--text-weight-400);
+  --body-s-line-height: var(--line-height-150);
+
+  --body-s-bold-font-family: var(--font-family-pretendard);
+  --body-s-bold-font-size: var(--text-size-15);
+  --body-s-bold-font-weight: var(--text-weight-700);
+  --body-s-bold-line-height: var(--line-height-150);
+
+  --button-label-font-family: var(--font-family-pretendard);
+  --button-label-font-size: var(--text-size-17);
+  --button-label-font-weight: var(--text-weight-700);
+  --button-label-line-height: var(--line-height-150);
+
+  --form-label-font-family: var(--font-family-pretendard);
+  --form-label-font-size: var(--text-size-17);
+  --form-label-font-weight: var(--text-weight-700);
+  --form-label-line-height: var(--line-height-150);
+
+  --form-input-font-family: var(--font-family-pretendard);
+  --form-input-font-size: var(--text-size-17);
+  --form-input-font-weight: var(--text-weight-400);
+  --form-input-line-height: var(--line-height-150);
+
+  --form-helper-font-family: var(--font-family-pretendard);
+  --form-helper-font-size: var(--text-size-15);
+  --form-helper-font-weight: var(--text-weight-400);
+  --form-helper-line-height: var(--line-height-150);
+
+  --form-error-font-family: var(--font-family-pretendard);
+  --form-error-font-size: var(--text-size-15);
+  --form-error-font-weight: var(--text-weight-700);
+  --form-error-line-height: var(--line-height-150);
+
+  --cal-title-font-family: var(--font-family-pretendard);
+  --cal-title-font-size: var(--text-size-19);
+  --cal-title-font-weight: var(--text-weight-700);
+  --cal-title-line-height: var(--line-height-150);
+
+  --cal-weekday-font-family: var(--font-family-pretendard);
+  --cal-weekday-font-size: var(--text-size-15);
+  --cal-weekday-font-weight: var(--text-weight-700);
+  --cal-weekday-line-height: var(--line-height-150);
+
+  --cal-date-font-family: var(--font-family-pretendard);
+  --cal-date-font-size: var(--text-size-15);
+  --cal-date-font-weight: var(--text-weight-400);
+  --cal-date-line-height: var(--line-height-150);
+
+  /* ===== 간격: 기본값 (Figma: Primitives/spacing, padding) ===== */
+  --spacing-4: 0.25rem; /* 4px */
+  --spacing-8: 0.5rem; /* 8px */
+  --spacing-12: 0.75rem; /* 12px */
+  --spacing-16: 1rem; /* 16px */
+  --spacing-24: 1.5rem; /* 24px */
+  --spacing-120: 7.5rem; /* 120px */
+
+  --padding-s: 0.625rem; /* 10px */
+  --padding-m: 1.25rem; /* 20px */
+  --padding-l: 2.5rem; /* 40px */
+
+  /* 간격: Figma 변수에 없지만 화면에서 반복되는 값 */
+  --spacing-6: 0.375rem; /* 6px, L 크기 버튼의 gap */
+  --spacing-7: 0.4375rem; /* 7px, 이미지와 체크박스의 padding */
+
+  /* ===== 간격: 용도별 (Figma: text&radius/Gap, device/margin) ===== */
+  --gap-ss: var(--spacing-4);
+  --gap-s: var(--spacing-8);
+  --gap-sm: var(--spacing-12);
+  --gap-m: var(--spacing-16);
+  --gap-l: var(--spacing-24);
+
+  /* 모드별로 값이 다른 간격: 모바일 기준 */
+  --device-margin: var(--spacing-16);
+
+  /* ===== 라운드: 용도별 (Figma: text&radius/radius) ===== */
+  --radius-s: var(--spacing-4);
+  --radius-m: var(--spacing-8);
+  --radius-l: var(--spacing-16);
+
+  /*
+   * 라운드: 기본값 (Figma: Primitives/radius)
+   * Figma에서 용도별 radius와 이름이 같고 값이 달라 primitive- 접두어를 붙였다.
+   */
+  --primitive-radius-s: 0.5rem; /* 8px */
+  --primitive-radius-m: 0.625rem; /* 10px */
+  --primitive-radius-l: 1.25rem; /* 20px */
+  --primitive-radius-xl: 2rem; /* 32px */
+
+  /* 라운드: Figma 변수에 없지만 화면에서 반복되는 값 */
+  --radius-5: 0.3125rem; /* 5px, 배너 인디케이터 도트 */
+
+  /* ===== 그림자 (Figma: Effect Styles) ===== */
+  --shadow: 0 2px 10px 0 rgb(0 0 0 / 25%);
+  --inner-shadow: inset 0 -2px 0 0 rgb(0 0 0 / 75%);
+
+  /* ===== 테두리 두께: Figma 변수에 없지만 버튼에서 쓰는 값 ===== */
+  --border-width-1: 1px;
+  --border-width-2: 2px;
+  --border-width-half: 0.5px; /* 로케이션 탭 아래 선 */
+
+  /* ===== 버튼 크기: Figma 변수에 없지만 버튼에서 쓰는 값 ===== */
+  --button-height: 3rem; /* 48px */
+  --button-width-s: 5.625rem; /* 90px */
+  --button-width-l: 10rem; /* 160px */
+  --button-max-width-s: 8.125rem; /* 130px */
+  --button-max-width-l: 12.5rem; /* 200px */
+
+  /* ===== 조회버튼 크기: Figma 변수에 없지만 조회버튼에서 쓰는 값 ===== */
+  --lookup-toggle-height: 3.25rem; /* 52px */
+  --lookup-toggle-item-height: 2.75rem; /* 44px */
+  --lookup-toggle-inset: 0.3125rem; /* 5px */
+
+  /* ===== 입력 크기: Figma 변수에 없지만 입력 컴포넌트에서 쓰는 값 ===== */
+  --input-height: 3rem; /* 48px */
+  --input-box-height: 2.75rem; /* 44px, 박스형 */
+  --people-counter-button-size: 2rem; /* 32px */
+  --people-counter-value-width: 5.75rem; /* 92px */
+
+  /* ===== 탭 크기: Figma 변수에 없지만 탭에서 쓰는 값 ===== */
+  --tab-location-3depth-height: 2.75rem; /* 44px */
+  --tab-more-icon-size: 1.125rem; /* 18px, 더보기·덜보기 아이콘 */
+
+  /* ===== 검색영역: Figma 변수에 없지만 검색영역에서 쓰는 값 ===== */
+  --search-area-category-width: 15.625rem; /* 250px, 태블릿 드롭다운 */
+  --search-area-columns: 1.5fr 3fr 0.8fr 0.8fr; /* 데스크탑 칸 비율 */
+
+  /* ===== 뱃지 크기: Figma 변수에 없지만 뱃지에서 쓰는 값 ===== */
+  --badge-height: 2rem; /* 32px */
+  --badge-width-s: 3.75rem; /* 60px, 무료·유료 */
+  --badge-width-l: 4.375rem; /* 70px */
+
+  /* ===== 프로그램 카드 크기: Figma 변수에 없지만 카드에서 쓰는 값 ===== */
+  --program-card-height: 31.25rem; /* 500px, 세로카드 */
+  --program-card-min-width: 23.875rem; /* 382px, 세로카드 */
+  --program-card-max-width: 29.25rem; /* 468px, 세로카드 */
+  --program-card-image-height: 15.625rem; /* 250px */
+  --program-card-image-width: 19.4375rem; /* 311px, 가로 카드 */
+
+  /* ===== 모달 뒤 배경: Figma에 없어 사용자 요청으로 정한 값 ===== */
+  --color-modal-backdrop: rgb(0 0 0 / 50%);
+
+  /* ===== 모달 크기: Figma 변수에 없지만 모달에서 쓰는 값 ===== */
+  --modal-width-s: 25rem; /* 400px, 버튼 1개 */
+  --modal-width-l: 30rem; /* 480px, 버튼 2개 */
+  --sheet-grabber-width: 3.75rem; /* 60px */
+  --sheet-grabber-height: 0.3125rem; /* 5px */
+  --sheet-filter-view-height: 26.5rem; /* 424px, 상세검색 스크롤 영역 */
+
+  /* ===== 달력 크기: Figma 변수에 없지만 달력에서 쓰는 값 ===== */
+  --calendar-cell-height: 2.625rem; /* 42px */
+
+  /* ===== 배너 크기: Figma 변수에 없지만 배너에서 쓰는 값 ===== */
+  --banner-max-width-narrow: 40rem; /* 640px, 모바일·태블릿 */
+  --banner-max-width: 75rem; /* 1200px, 데스크탑 */
+  --banner-columns: 280fr 888fr; /* 데스크탑 왼쪽 정보와 이미지의 폭 비율 */
+  --banner-side-offset: 2.375rem; /* 38px, 데스크탑 왼쪽 위 여백 */
+  --banner-image-ratio-mobile: 360 / 500;
+  --banner-image-ratio-tablet: 608 / 760;
+  --banner-image-ratio-desktop: 888 / 500;
+  --banner-mobile-title-height: 6.75rem; /* 108px */
+  --banner-control-size: 4rem; /* 64px, 이전·다음 버튼 */
+  --banner-pause-size: 2.125rem; /* 34px, 정지 버튼 */
+  --banner-controls-gap: 1.8125rem; /* 29px */
+  --banner-dot-size: 0.5rem; /* 8px */
+
+  /* ===== 배너 움직임: Figma 프로토타입 값 ===== */
+  --banner-slide-duration: 0.5s;
+  --banner-slide-easing: ease-out;
+
+  /* ===== 큰 아이콘 크기: 닫기, 이전, 다음 ===== */
+  --icon-size-l: 2rem; /* 32px */
+}
+
+/* 태블릿: 768px 이상 (Figma 모드: tablet) */
+@media (min-width: 768px) {
+  :root {
+    --text-size-h1: var(--text-size-32);
+    --text-size-h2: var(--text-size-24);
+    --text-size-menu: var(--text-size-19);
+    --text-size-submenu: var(--text-size-17);
+    --device-margin: var(--spacing-24);
+  }
+}
+
+/* 데스크탑: 1440px 이상 (Figma 모드: desktop, 태블릿과 다른 값만 정의) */
+@media (min-width: 1440px) {
+  :root {
+    --device-margin: var(--spacing-120);
+  }
+}

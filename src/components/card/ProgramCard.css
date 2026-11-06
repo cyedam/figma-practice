@@ -1,0 +1,93 @@
+/* 프로그램 카드: 값은 tokens.css 변수만 사용한다. */
+
+.program-card {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: var(--radius-m);
+  word-break: keep-all; /* 한글 단어 중간에서 줄이 바뀌지 않게 한다. */
+}
+
+.program-card__image {
+  height: var(--program-card-image-height);
+  background-color: var(--color-grey-300);
+}
+
+.program-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 뱃지는 이미지 왼쪽 위에 겹친다. */
+.program-card__badges {
+  position: absolute;
+  top: var(--gap-s);
+  left: var(--gap-s);
+  display: flex;
+  gap: var(--gap-s);
+}
+
+/* 세로카드: 모바일은 부모 너비를 채우고, 태블릿부터 최소 너비를 지킨다. */
+.program-card--vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: var(--program-card-height);
+  max-width: var(--program-card-max-width);
+  border: var(--border-width-1) solid var(--color-border);
+  background-color: var(--color-bg-page);
+}
+
+.program-card--vertical .program-card__badges {
+  top: var(--spacing-7);
+  left: var(--spacing-7);
+}
+
+.program-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-s);
+  padding: var(--gap-m);
+}
+
+.program-card__title {
+  font-size: var(--heading-h4-font-size);
+  font-weight: var(--heading-h4-font-weight);
+  line-height: var(--heading-h4-line-height);
+}
+
+.program-card__details {
+  color: var(--color-text-primary);
+  font-family: var(--body-s-font-family), var(--font-family-fallback);
+  font-size: var(--body-s-font-size);
+  font-weight: var(--body-s-font-weight);
+  line-height: var(--body-s-line-height);
+}
+
+/* 문의처 두 줄은 Figma처럼 4px 겹쳐 붙인다. */
+.program-card__contact p + p {
+  margin-top: calc(var(--gap-ss) * -1);
+}
+
+.program-card__footer {
+  padding: 0 var(--gap-m) var(--gap-m);
+}
+
+/* 가로 카드: 폭이 좁으면 정보가 이미지 아래로 내려간다. */
+.program-card--horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-s);
+}
+
+.program-card--horizontal .program-card__image {
+  width: var(--program-card-image-width);
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .program-card--vertical {
+    min-width: var(--program-card-min-width);
+  }
+}

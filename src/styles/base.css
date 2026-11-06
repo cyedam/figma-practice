@@ -1,0 +1,51 @@
+/* 전역 기본 스타일: 색상과 폰트는 tokens.css 변수만 사용한다. */
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-bg-page);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-pretendard), var(--font-family-fallback);
+  font-size: var(--body-m-font-size);
+  font-weight: var(--body-m-font-weight);
+  line-height: var(--body-m-line-height);
+}
+
+/* 글꼴 패밀리는 body에서 상속한다. */
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-text-heading);
+}
+
+h1 {
+  font-size: var(--heading-h1-font-size);
+  font-weight: var(--heading-h1-font-weight);
+  line-height: var(--heading-h1-line-height);
+}
+
+h2 {
+  font-size: var(--heading-h2-font-size);
+  font-weight: var(--heading-h2-font-weight);
+  line-height: var(--heading-h2-line-height);
+}
+
+h3 {
+  font-size: var(--heading-h3-font-size);
+  font-weight: var(--heading-h3-font-weight);
+  line-height: var(--heading-h3-line-height);
+}
+
+h4 {
+  font-size: var(--heading-h4-font-size);
+  font-weight: var(--heading-h4-font-weight);
+  line-height: var(--heading-h4-line-height);
+}
+
+a {
+  color: var(--color-primary);
+}
+
+a:hover {
+  color: var(--color-menu);
+}
