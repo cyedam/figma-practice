@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react'
 import { useNavigate } from 'react-router'
 import BottomActions from '../components/layout/BottomActions'
 import DesktopHeader from '../components/layout/DesktopHeader'
+import Footer from '../components/layout/Footer'
 import Header from '../components/layout/Header'
 import LocationTabs from '../components/layout/LocationTabs'
 import MobileMenu from '../components/menu/MobileMenu'
@@ -27,7 +28,7 @@ const MENU_PATHS = {
 }
 
 /**
- * 화면 공통 틀: 헤더, 위치 탭, 내용, 맨 아래 버튼, 전체 메뉴
+ * 화면 공통 틀: 헤더, 위치 탭, 내용, 맨 아래 버튼, 푸터, 전체 메뉴
  * backTo: 이전 버튼을 눌렀을 때 갈 주소. 없으면 이전 버튼을 숨긴다.
  * activeTab: 위치 탭에서 선택된 주소. 없으면 위치 탭을 숨긴다.
  * title: 모바일에서 위치 탭 대신 보여 줄 제목.
@@ -103,6 +104,8 @@ function ScreenLayout({ backTo, activeTab, title, actions, flush = false, onLeav
       <main className="screen__content">{children}</main>
 
       {actions && <BottomActions>{actions}</BottomActions>}
+
+      <Footer />
 
       <Modal
         open={menuOpen}

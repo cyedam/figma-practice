@@ -1,0 +1,135 @@
+/* 유관기관 배너: 값은 tokens.css 변수만 사용한다. */
+
+.footer-related {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* 위 줄: 조작 버튼 4개와 '배너 더보기' (Figma: gap 12) */
+.footer-related__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-sm);
+}
+
+/* 조작 버튼 4개는 간격 없이 붙어 있다. (Figma: 푸터버튼) */
+.footer-related__buttons {
+  display: flex;
+}
+
+.footer-related__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--footer-control-size);
+  height: var(--footer-control-size);
+  padding: 0;
+  border: var(--footer-control-border-width) solid var(--color-border);
+  background-color: var(--color-bg-footer-2);
+  cursor: pointer;
+}
+
+/* 아이콘: 파일의 모양만 쓰고, 색은 토큰으로 입힌다. */
+.footer-related__icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-text-on);
+  -webkit-mask: var(--footer-related-icon) center no-repeat;
+  mask: var(--footer-related-icon) center no-repeat;
+}
+
+.footer-related__icon--prev {
+  --footer-related-icon: url('../../assets/icons/icon-footer-prev.svg');
+}
+
+.footer-related__icon--pause {
+  --footer-related-icon: url('../../assets/icons/icon-footer-pause.svg');
+}
+
+.footer-related__icon--play {
+  --footer-related-icon: url('../../assets/icons/icon-footer-play.svg');
+}
+
+.footer-related__icon--next {
+  --footer-related-icon: url('../../assets/icons/icon-footer-next.svg');
+}
+
+.footer-related__icon--more {
+  --footer-related-icon: url('../../assets/icons/icon-footer-more.svg');
+  width: var(--footer-control-size);
+  height: var(--footer-control-size);
+}
+
+.footer-related__more {
+  display: flex;
+  align-items: center;
+  gap: var(--footer-gap-s);
+  color: var(--color-text-on);
+  font-size: var(--text-size-11);
+  font-weight: var(--text-weight-400);
+  line-height: var(--line-height-150);
+  text-decoration: none;
+}
+
+.footer-related__more:hover {
+  text-decoration: underline;
+}
+
+/* 아래 줄: 인증 마크와 배너 창 (Figma: 하단로고, gap 8) */
+.footer-related__row {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-s);
+}
+
+/* 배너 한 칸이 보이는 창 (Figma: 159×57) */
+.footer-related__view {
+  width: var(--footer-related-width);
+  height: var(--footer-related-height);
+  overflow: hidden;
+  background-color: var(--color-bg-footer-2);
+}
+
+.footer-related__track {
+  display: flex;
+  height: 100%;
+}
+
+.footer-related__track--animate {
+  transition: transform var(--banner-slide-duration) var(--banner-slide-easing);
+}
+
+.footer-related__slide {
+  flex: 0 0 100%;
+  padding: var(--footer-related-inset);
+}
+
+.footer-related__slide a {
+  display: block;
+  height: 100%;
+}
+
+.footer-related__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 화면에는 보이지 않고 화면 낭독기만 읽는 글 */
+.footer-related__status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-related__track--animate {
+    transition: none;
+  }
+}

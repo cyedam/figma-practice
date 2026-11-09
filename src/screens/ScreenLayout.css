@@ -12,6 +12,11 @@
   gap: 0;
 }
 
+/* 내용이 짧아도 푸터는 화면 맨 아래에 둔다. */
+.screen > .footer {
+  margin-top: auto;
+}
+
 /* 헤더와 위치 탭은 스크롤해도 위에 붙어 있는다. */
 .screen__top {
   position: sticky;

@@ -1,4 +1,5 @@
 import Banner from '../components/banner/Banner'
+import NewsletterBanner from '../components/banner/NewsletterBanner'
 import ScreenLayout from './ScreenLayout'
 import './MainScreen.css'
 
@@ -8,6 +9,10 @@ function MainScreen() {
     <ScreenLayout flush>
       <div className="main-screen__banner">
         <Banner />
+      </div>
+      {/* 메인 배너 아래 뉴스레터 배너 (Figma: CTA-뉴스레터, 구역 사이 40px) */}
+      <div className="main-screen__newsletter">
+        <NewsletterBanner />
       </div>
     </ScreenLayout>
   )

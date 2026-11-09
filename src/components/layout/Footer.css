@@ -1,0 +1,179 @@
+/* 푸터: 값은 tokens.css 변수만 사용한다. */
+
+.footer {
+  background-color: var(--color-bg-footer-2);
+  color: var(--color-text-info);
+}
+
+/* ===== 모바일 (Figma: 푸터-모바일) ===== */
+.footer__mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--footer-gap-m);
+  padding: var(--padding-m) var(--padding-m) var(--padding-l);
+}
+
+.footer__mobile-buttons {
+  display: flex;
+  gap: var(--padding-m);
+  width: 100%;
+}
+
+.footer__mobile-button {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-ss);
+  padding: var(--spacing-6);
+  border: 0;
+  background-color: var(--color-bg-footer-1);
+  color: var(--color-text-info);
+  font: inherit;
+  font-size: var(--text-size-13);
+  line-height: var(--line-height-150);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer__up-icon {
+  width: var(--footer-up-icon-size);
+  height: var(--footer-up-icon-size);
+  background-color: var(--color-text-on);
+  -webkit-mask: url('../../assets/icons/icon-arrow-up.svg') center no-repeat;
+  mask: url('../../assets/icons/icon-arrow-up.svg') center no-repeat;
+}
+
+.footer__mobile-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--footer-gap-xs);
+  text-align: center;
+}
+
+.footer__privacy {
+  color: var(--color-yellow-500);
+  font-size: var(--text-size-15);
+  font-weight: var(--text-weight-600);
+  line-height: normal;
+  text-decoration: none;
+}
+
+.footer__privacy:hover {
+  text-decoration: underline;
+}
+
+.footer__copyright {
+  font-size: var(--text-size-13);
+  line-height: var(--line-height-150);
+}
+
+/* ===== 태블릿·데스크탑 (Figma: 푸터-데스크탑) ===== */
+.footer__desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .footer__mobile {
+    display: none;
+  }
+
+  .footer__desktop {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-m);
+    padding-bottom: var(--footer-padding-bottom);
+  }
+
+  /* 위 링크 줄 (Figma: 푸터상단탭). 태블릿에서는 가운데 정렬한다. (사용자 요청) */
+  .footer__links {
+    padding: var(--footer-gap-m) var(--padding-m);
+    background-color: var(--color-bg-footer-1);
+  }
+
+  .footer__links .footer-links {
+    justify-content: center;
+  }
+
+  /* 아래: 왼쪽 로고·정보 글, 오른쪽 유관기관 배너 */
+  /* 유관기관 묶음은 오른쪽 위에 맞춘다. (사용자 요청) */
+  .footer__bottom {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--padding-m);
+    padding: 0 var(--padding-m);
+  }
+
+  /* 오른쪽 유관기관 묶음은 내려가지 않는다. (사용자 요청)
+     폭이 좁아 주소 덩어리가 로고 옆에 들어가지 않으면, 대신 로고 아래로 주소를 내린다. */
+  .footer__info {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    /* 로고는 주소 글과 위쪽 끝을 맞춘다. (사용자 요청) */
+    align-items: flex-start;
+    gap: var(--footer-gap-m);
+    padding-right: var(--footer-gap-l);
+  }
+
+  .footer__logo {
+    flex: none;
+    width: var(--footer-logo-width);
+    height: auto;
+  }
+
+  /* 남는 폭을 쓰되, 가장 긴 주소 덩어리보다 좁아지지는 않는다. */
+  .footer__address {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--gap-ss);
+    font-size: var(--text-size-13);
+    font-style: normal;
+    line-height: var(--line-height-150);
+  }
+
+  /* 한 줄 안의 덩어리 사이는 Figma의 빈칸만큼 띄운다. 좁으면 덩어리째 다음 줄로 내린다. */
+  .footer__address-line {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: var(--gap-l);
+  }
+
+  /* 덩어리 안에서는 줄을 바꾸지 않는다. */
+  .footer__address-part {
+    white-space: nowrap;
+  }
+
+  .footer__right {
+    flex: none;
+    margin-left: auto;
+    width: var(--footer-right-width);
+  }
+
+  .footer__mark {
+    width: var(--footer-mark-size);
+    height: var(--footer-mark-size);
+    object-fit: contain;
+  }
+
+  .footer__mark--wa {
+    width: var(--footer-wa-width);
+    height: var(--footer-wa-height);
+  }
+}
+
+/* 데스크탑: 링크 줄은 왼쪽 정렬로 돌아가고, 좌우 여백은 헤더·내용과 같은 1200px 칸에 맞춘다. */
+@media (min-width: 1440px) {
+  .footer__links .footer-links {
+    justify-content: flex-start;
+  }
+
+  .footer__links,
+  .footer__bottom {
+    padding-inline: max(var(--device-margin), calc((100% - var(--content-max-width)) / 2));
+  }
+}

@@ -111,17 +111,17 @@ src/assets/icons/    아이콘
 src/assets/images/   이미지
 src/hooks/           화면이 아닌 공용 기능 (useIsMobile: 모바일 폭인지 알려 줌)
 src/components/      컴포넌트 (종류별 폴더)
-  banner/            메인 배너
+  banner/            메인 배너, 뉴스레터 배너
   button/            버튼, 조회버튼
   calendar/          달력
   card/              카드, 뱃지, 정보 목록, 박스
   input/             입력 칸, 비밀번호, 인원, 체크박스, 드롭다운
-  layout/            헤더, 위치 탭, 화면 아래 버튼 영역
+  layout/            헤더, 위치 탭, 화면 아래 버튼 영역, 푸터
   menu/              탭, 데스크탑·모바일 메뉴
   modal/             모달, 시트
   search/            검색영역, 검색 칸, 검색 건수
 src/screens/         화면 (컴포넌트를 조립한 페이지)
-  ScreenLayout       화면 공통 틀 (헤더, 위치 탭, 아래 버튼, 전체 메뉴)
+  ScreenLayout       화면 공통 틀 (헤더, 위치 탭, 아래 버튼, 푸터, 전체 메뉴)
   *Screen            화면별 파일
   programData.js     프로그램 목록과 안내 문구
   scheduleData.js    신청 일정

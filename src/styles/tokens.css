@@ -370,6 +370,29 @@
   --logo-width-wide: 8.0625rem; /* 129px, 태블릿·데스크탑 가로 로고 */
   --gnb-utility-height: 3rem; /* 48px, 데스크탑 로고 줄 */
   --breadcrumb-gap: 0.3125rem; /* 5px, 데스크탑 상위 메뉴 */
+
+  /* ===== 푸터: Figma 변수에 없지만 푸터에서 쓰는 값 (Figma: 요소-푸터섹션) ===== */
+  --footer-link-gap: 0.0625rem; /* 1px, 링크와 구분선 사이 */
+  --footer-gap-xs: 0.125rem; /* 2px, 모바일 아래 두 줄 사이 */
+  --footer-gap-s: 0.1875rem; /* 3px, '배너 더보기' 글자와 + 아이콘 */
+  --footer-gap-m: 0.9375rem; /* 15px */
+  --footer-gap-l: 1.875rem; /* 30px, 정보 글 오른쪽 여백 */
+  --footer-padding-bottom: 3.75rem; /* 60px, 태블릿·데스크탑 아래 여백 */
+  --footer-separator-height: 1rem; /* 16px, 링크 사이 세로선 */
+  --footer-logo-width: 5.8125rem; /* 93px, 흑백 로고 */
+  --footer-control-size: 1.125rem; /* 18px, 유관기관 배너 조작 버튼 */
+  --footer-control-border-width: 0.692px; /* 조작 버튼 테두리 */
+  --footer-up-icon-size: 1.25rem; /* 20px, 위로 이동 아이콘 */
+  --footer-mark-size: 3.4375rem; /* 55px, 가족친화 인증 */
+  --footer-wa-width: 5.3125rem; /* 85px, 웹 접근성 인증 */
+  --footer-wa-height: 3.75rem; /* 60px */
+  --footer-related-width: 9.9375rem; /* 159px, 유관기관 배너 */
+  --footer-related-height: 3.5625rem; /* 57px */
+  --footer-related-inset: 0.125rem; /* 2px, 배너 이미지 둘레 */
+  --footer-right-width: 19.5rem; /* 312px, 오른쪽 묶음 */
+
+  /* ===== 뉴스레터 배너: Figma 변수에 없지만 메인에서 쓰는 값 ===== */
+  --newsletter-padding-bottom: 3.75rem; /* 60px, 아래 내용과의 간격 */
 }
 
 /* 태블릿: 768px 이상 (Figma 모드: tablet) */
