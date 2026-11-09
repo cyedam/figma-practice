@@ -110,7 +110,7 @@
   }
 }
 
-/* 아직 신청 화면이 없는 프로그램: 글씨와 버튼을 회색으로 (사용자 요청) */
+/* 아직 신청 화면이 없는 프로그램: 글씨와 버튼을 회색으로. 버튼은 누를 수 있다. (사용자 요청) */
 .program-card--inactive .program-card__title,
 .program-card--inactive .program-card__details {
   color: var(--color-text-disabled);
@@ -121,5 +121,13 @@
   border-color: var(--color-text-disabled);
   background-color: var(--color-bg-page);
   color: var(--color-text-disabled);
+}
+
+/* 누를 수 있는 버튼은 마우스를 올리면 Figma 보조 버튼처럼 배경이 바뀐다. */
+.program-card--inactive .button:not(:disabled):hover {
+  background-color: var(--color-bg-surface);
+}
+
+.program-card--inactive .button:disabled {
   cursor: default;
 }

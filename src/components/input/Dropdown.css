@@ -93,3 +93,8 @@
 .dropdown__option--selected {
   background-color: var(--color-bg-surface);
 }
+
+/* 회색 항목: 글씨만 회색이고 고를 수는 있다. (사용자 요청) */
+.dropdown__option.dropdown__option--muted {
+  color: var(--color-text-disabled);
+}

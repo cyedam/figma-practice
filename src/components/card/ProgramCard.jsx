@@ -24,7 +24,7 @@ function CardImage({ imageSrc, imageAlt }) {
  * buttonLabel, onButtonClick: 버튼 이름과 누를 때 실행할 동작. 이름이 없으면 버튼을 숨긴다.
  * buttonVariant: 버튼 종류. main-s(접수), sub-s(마감), special-urgent-s(대기)
  * buttonDisabled: 버튼을 누를 수 없게 할지 여부
- * inactive: 아직 신청 화면이 없는 프로그램. 글씨와 버튼이 회색으로 보이고 버튼을 누를 수 없다. (사용자 요청)
+ * inactive: 아직 신청 화면이 없는 프로그램. 글씨와 버튼이 회색으로 보인다. 버튼 동작은 그대로다. (사용자 요청)
  *
  * horizontal에서 쓰는 값
  * info: ProgramInfo에 넘길 값
@@ -98,7 +98,7 @@ function ProgramCard({
         <div className="program-card__footer">
           <Button
             variant={inactive ? 'sub-s' : buttonVariant}
-            disabled={buttonDisabled || inactive}
+            disabled={buttonDisabled}
             onClick={onButtonClick}
           >
             {buttonLabel}

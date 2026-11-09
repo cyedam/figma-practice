@@ -36,17 +36,18 @@ export const MOONLIGHT_INFO = {
 }
 
 // value는 프로그램 제목 앞의 [구분]과 같다. all은 전체다.
+// muted: 아직 신청 화면이 없는 분류라 글씨를 회색으로 보인다. 고르는 것은 된다. (사용자 요청: 문화관광해설만 진하게)
 export const PROGRAM_CATEGORIES = [
-  { value: 'all', label: '전체' },
-  { value: '교육프로그램', label: '교육프로그램 접수' },
-  { value: '체험프로그램', label: '체험프로그램 접수' },
+  { value: 'all', label: '전체', muted: true },
+  { value: '교육프로그램', label: '교육프로그램 접수', muted: true },
+  { value: '체험프로그램', label: '체험프로그램 접수', muted: true },
   { value: '문화관광해설', label: '문화관광해설 접수' },
-  { value: '행궁동 왕의 골목여행 해설', label: '행궁동 왕의 골목여행 해설 접수' },
-  { value: '근대여행 골목길 해설투어', label: '근대여행 골목길 해설투어 접수' },
-  { value: '수원전통문화관', label: '수원전통문화관 접수' },
-  { value: '시설물 대관 온라인', label: '시설물 대관 온라인 접수' },
-  { value: '복합문화공간 111CM 대관', label: '복합문화공간 111CM 대관 접수' },
-  { value: '기타프로그램', label: '기타프로그램 접수' },
+  { value: '행궁동 왕의 골목여행 해설', label: '행궁동 왕의 골목여행 해설 접수', muted: true },
+  { value: '근대여행 골목길 해설투어', label: '근대여행 골목길 해설투어 접수', muted: true },
+  { value: '수원전통문화관', label: '수원전통문화관 접수', muted: true },
+  { value: '시설물 대관 온라인', label: '시설물 대관 온라인 접수', muted: true },
+  { value: '복합문화공간 111CM 대관', label: '복합문화공간 111CM 대관 접수', muted: true },
+  { value: '기타프로그램', label: '기타프로그램 접수', muted: true },
 ]
 
 // 같은 담당 부서가 반복되어 묶어 둔다.
@@ -69,7 +70,7 @@ const CM111 = {
 const YEAR_ROUND = { startDate: '2026.01.01', endDate: '2026.12.31' }
 
 // status: open(접수중), waitlist(대기신청), closed(접수마감) / fee: free(무료), paid(유료)
-// available: 신청 화면이 있는 프로그램. 없으면 목록에서 회색 글씨로 보이고 버튼을 누를 수 없다. (사용자 요청: 달빛, 성곽 투어만 신청 가능)
+// available: 신청 화면이 있는 프로그램. 없으면 목록에서 글씨와 버튼이 회색으로 보인다. 버튼 동작은 그대로다. (사용자 요청: 달빛, 성곽 투어만 신청 가능)
 // buttonLabel을 적지 않으면 상태별 기본 이름(접수, 대기, 마감)을 쓴다.
 export const PROGRAMS = [
   { ...CULTURE_CITY, title: '[교육프로그램] 업사이클링 모시공예 창작수업', startDate: '2026.07.14', endDate: '2026.08.26', status: 'closed', fee: 'free', image: upcycling },

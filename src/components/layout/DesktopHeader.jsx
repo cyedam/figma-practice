@@ -83,12 +83,12 @@ function DesktopHeader({ menuOpen, onMenuToggle, onMenuClose, onLogoClick, onMen
         </div>
 
         <nav className="desktop-header__gnb" aria-label="주 메뉴">
-          {/* 메인 메뉴는 MOBILE_MENUS와 같은 순서다. 이동할 화면이 있는 묶음(열린공간)만 누를 수 있다. */}
+          {/* 메인 메뉴는 MOBILE_MENUS와 같은 순서다. 이동할 화면이 있는 묶음(열린공간)만 진한 글씨이고, 나머지는 글씨만 회색이다. */}
           {GNB_MENUS.map((label, index) => (
             <Tab
               key={label}
               variant="gnb-main"
-              disabled={!hasPath(MOBILE_MENUS[index]?.items)}
+              muted={!hasPath(MOBILE_MENUS[index]?.items)}
               aria-expanded={menuOpen}
               aria-controls={panelId}
               onClick={onMenuToggle}

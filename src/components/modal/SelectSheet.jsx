@@ -3,7 +3,8 @@ import './SelectSheet.css'
 
 /**
  * 항목을 고르는 시트 (Figma: 모달의 모바일 선택)
- * options: 고를 항목 목록. [{ value, label }]
+ * options: 고를 항목 목록. [{ value, label, muted }]
+ *   muted가 true면 글씨만 회색으로 보이고, 고르는 것은 그대로 된다. (사용자 요청)
  * value: 선택된 항목의 value
  * onChange: 항목을 누르면 그 value를 받아 실행한다.
  * label: 화면 낭독기가 읽는 이름
@@ -21,7 +22,7 @@ function SelectSheet({ open, onClose, options, value, onChange, label }) {
               <li key={option.value}>
                 <button
                   type="button"
-                  className="select-sheet__option"
+                  className={`select-sheet__option${option.muted ? ' select-sheet__option--muted' : ''}`}
                   aria-current={isSelected || undefined}
                   onClick={() => onChange(option.value)}
                 >

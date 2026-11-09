@@ -35,3 +35,8 @@
   background-color: var(--color-bg-surface);
   color: var(--color-text-heading);
 }
+
+/* 회색 항목: 글씨만 회색이고 고를 수는 있다. (사용자 요청) */
+.select-sheet__option.select-sheet__option--muted {
+  color: var(--color-text-disabled);
+}

@@ -5,7 +5,8 @@ import './Dropdown.css'
 
 /**
  * 드롭다운 (Figma: 드롭다운의 공통 default·click, 데스크탑·모바일 항목)
- * options: 고를 항목 목록. [{ value, label }]
+ * options: 고를 항목 목록. [{ value, label, muted }]
+ *   muted가 true면 글씨만 회색으로 보이고, 고르는 것은 그대로 된다. (사용자 요청)
  * value: 선택된 항목의 value
  * onChange: 다른 항목을 고르면 그 value를 받아 실행한다.
  * placeholder: 아무것도 고르지 않았을 때 보이는 문구
@@ -83,7 +84,7 @@ function Dropdown({ options, value, onChange, placeholder = '선택해주세요'
               <li key={option.value}>
                 <button
                   type="button"
-                  className={`dropdown__option${isSelected ? ' dropdown__option--selected' : ''}`}
+                  className={`dropdown__option${isSelected ? ' dropdown__option--selected' : ''}${option.muted ? ' dropdown__option--muted' : ''}`}
                   aria-current={isSelected || undefined}
                   onClick={() => handleSelect(option.value)}
                 >
