@@ -59,6 +59,15 @@
   background-color: var(--color-grey-500);
 }
 
+/* 아직 동작이 없는 아이콘 버튼: 회색, 누를 수 없음 (사용자 요청) */
+.desktop-header__tool:disabled {
+  cursor: default;
+}
+
+.desktop-header__tool:disabled .desktop-header__icon {
+  background-color: var(--color-text-disabled);
+}
+
 .desktop-header__icon--menu {
   -webkit-mask: url('../../assets/icons/icon-menu.svg') center no-repeat;
   mask: url('../../assets/icons/icon-menu.svg') center no-repeat;

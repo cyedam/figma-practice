@@ -10,8 +10,8 @@ function prefersReducedMotion() {
 
 /**
  * 유관기관 배너 (Figma: 푸터우측하단의 푸터배너보기, 푸터배너)
- * banners: [{ src, alt, href }]
- * moreHref: '배너 더보기' 주소
+ * banners: [{ src, alt, href }] href가 없으면 이미지만 보여 준다.
+ * moreHref: '배너 더보기' 주소. 없으면 회색 글씨로 보이고 누를 수 없다. (사용자 요청)
  * interval: 배너가 멈춰 있는 시간(ms). 기본값은 Figma 프로토타입의 2초다.
  * children: 배너 창 왼쪽에 함께 놓을 내용 (Figma: 하단로고의 인증 마크)
  *
@@ -20,7 +20,7 @@ function prefersReducedMotion() {
  * 자동 넘김은 정지 버튼, 마우스 올림, 키보드 초점이 있을 때 멈춘다.
  * 움직임을 줄이는 설정에서는 자동으로 넘기지 않는다.
  */
-function FooterRelatedBanner({ banners, moreHref = '#', interval = 2000, children }) {
+function FooterRelatedBanner({ banners, moreHref, interval = 2000, children }) {
   const total = banners.length
   const slides = [...banners, banners[0]]
   const [position, setPosition] = useState(0)
@@ -114,10 +114,17 @@ function FooterRelatedBanner({ banners, moreHref = '#', interval = 2000, childre
             <span className="footer-related__icon footer-related__icon--next" aria-hidden="true" />
           </button>
         </div>
-        <a href={moreHref} className="footer-related__more">
-          배너 더보기
-          <span className="footer-related__icon footer-related__icon--more" aria-hidden="true" />
-        </a>
+        {moreHref ? (
+          <a href={moreHref} className="footer-related__more">
+            배너 더보기
+            <span className="footer-related__icon footer-related__icon--more" aria-hidden="true" />
+          </a>
+        ) : (
+          <span className="footer-related__more footer-related__more--disabled">
+            배너 더보기
+            <span className="footer-related__icon footer-related__icon--more" aria-hidden="true" />
+          </span>
+        )}
       </div>
 
       <div className="footer-related__row">
@@ -133,9 +140,13 @@ function FooterRelatedBanner({ banners, moreHref = '#', interval = 2000, childre
               const visible = index === position
               return (
                 <li key={index} className="footer-related__slide" aria-hidden={!visible}>
-                  <a href={banner.href} tabIndex={visible ? undefined : -1}>
+                  {banner.href ? (
+                    <a href={banner.href} tabIndex={visible ? undefined : -1}>
+                      <img className="footer-related__image" src={banner.src} alt={banner.alt} />
+                    </a>
+                  ) : (
                     <img className="footer-related__image" src={banner.src} alt={banner.alt} />
-                  </a>
+                  )}
                 </li>
               )
             })}

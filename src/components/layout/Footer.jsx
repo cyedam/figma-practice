@@ -31,23 +31,35 @@ function scrollToTop() {
  *   태블릿·데스크탑(768px부터): 푸터-데스크탑. 링크 줄, 로고와 정보 글, 유관기관 배너
  * 두 모양을 모두 그리고 CSS로 하나만 보여 준다.
  */
+// 주소(href)가 있으면 링크, 없으면 아직 동작이 없는 회색 글씨로 보여 준다. (사용자 요청)
+function FooterText({ href, className, children }) {
+  if (href) {
+    return (
+      <a href={href} className={className}>
+        {children}
+      </a>
+    )
+  }
+  return <span className={`${className} footer__disabled`}>{children}</span>
+}
+
 function Footer() {
   return (
     <footer className="footer">
       <div className="footer__mobile">
         <div className="footer__mobile-buttons">
-          <a href={SITEMAP_LINK.href} className="footer__mobile-button">
+          <FooterText href={SITEMAP_LINK.href} className="footer__mobile-button">
             사이트맵
-          </a>
+          </FooterText>
           <button type="button" className="footer__mobile-button" onClick={scrollToTop}>
             위로 이동
             <span className="footer__up-icon" aria-hidden="true" />
           </button>
         </div>
         <div className="footer__mobile-bottom">
-          <a href={PRIVACY_LINK.href} className="footer__privacy">
+          <FooterText href={PRIVACY_LINK.href} className="footer__privacy">
             {PRIVACY_LINK.label}
-          </a>
+          </FooterText>
           <p className="footer__copyright">ⓒ SUWON CULTURAL FOUNDATION.</p>
         </div>
       </div>

@@ -66,6 +66,7 @@
   --color-text-muted: var(--color-grey-500);
   --color-text-info: var(--color-grey-200);
   --color-text-on: var(--color-grey-50);
+  --color-text-disabled: var(--color-grey-300); /* 아직 동작이 없는 버튼·링크 글씨. Figma에 없어 사용자 요청으로 정한 값 */
 
   /* ===== 컬러: 색상 스타일에만 있는 이름 (Figma: Paint Styles) ===== */
   --color-bg-urgent: var(--color-urgent-1);

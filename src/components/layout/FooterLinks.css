@@ -43,3 +43,10 @@
   color: var(--color-blue-100);
   font-weight: var(--text-weight-600);
 }
+
+/* 아직 동작이 없는 링크: 강조 색이어도 회색으로 보인다. 굵기는 그대로 둔다. (사용자 요청) */
+.footer-links__link.footer-links__link--disabled {
+  color: var(--color-text-disabled);
+  text-decoration: none;
+  cursor: default;
+}

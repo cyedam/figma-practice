@@ -69,12 +69,13 @@ const CM111 = {
 const YEAR_ROUND = { startDate: '2026.01.01', endDate: '2026.12.31' }
 
 // status: open(접수중), waitlist(대기신청), closed(접수마감) / fee: free(무료), paid(유료)
+// available: 신청 화면이 있는 프로그램. 없으면 목록에서 회색 글씨로 보이고 버튼을 누를 수 없다. (사용자 요청: 달빛, 성곽 투어만 신청 가능)
 // buttonLabel을 적지 않으면 상태별 기본 이름(접수, 대기, 마감)을 쓴다.
 export const PROGRAMS = [
   { ...CULTURE_CITY, title: '[교육프로그램] 업사이클링 모시공예 창작수업', startDate: '2026.07.14', endDate: '2026.08.26', status: 'closed', fee: 'free', image: upcycling },
   { ...CULTURE_CITY, title: '[체험프로그램] 민화 드로잉 클래스 참여자 모집', startDate: '2026.07.06', endDate: '2026.08.23', status: 'closed', fee: 'free', image: minhwa },
   { ...TOUR_3624, title: "[문화관광해설] [특별해설] 수원화성 미개방 공간 '히든 투어' -닫힌 문이 열리면", startDate: '2026.09.21', endDate: '2026.10.11', target: '회당 20인', status: 'closed', fee: 'paid', image: hiddenTour },
-  { ...TOUR_3624, title: '[문화관광해설] [화성행궁 야간개장] 문화관광해설사와 함께하는 <달빛, 성곽 투어>', startDate: '2026.04.27', endDate: '2026.11.01', target: '미취학 아동, 만 75세 이상 참여 불가', status: 'open', fee: 'free', image: moonlight },
+  { ...TOUR_3624, title: '[문화관광해설] [화성행궁 야간개장] 문화관광해설사와 함께하는 <달빛, 성곽 투어>', startDate: '2026.04.27', endDate: '2026.11.01', target: '미취학 아동, 만 75세 이상 참여 불가', status: 'open', fee: 'free', image: moonlight, available: true },
   { ...TOUR_3624, ...YEAR_ROUND, title: '[문화관광해설] 2026년 수원화성 단체문화관광해설 예약', target: '20인 이상 단체', status: 'open', fee: 'free', image: groupTour },
   { ...TOUR_3623, title: '[문화관광해설] 가을빛 여정 - 억새길 투어', startDate: '2026.09.09', endDate: '2026.10.26', target: '최대 15인까지 운영', status: 'waitlist', buttonLabel: '대기신청', fee: 'free', image: silverGrass },
   { ...TOUR_3623, ...YEAR_ROUND, title: '[행궁동 왕의 골목여행 해설] 2026 행궁동 왕의 골목여행 사전예약', target: '미취학 아동 제외', status: 'open', fee: 'free', image: alley },

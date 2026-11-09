@@ -64,6 +64,7 @@ function ProgramListScreen() {
                 buttonLabel={program.buttonLabel ?? button.label}
                 buttonVariant={button.variant}
                 buttonDisabled={button.disabled}
+                inactive={!program.available}
                 onButtonClick={() =>
                   navigate(program.status === 'waitlist' ? '/apply?mode=waitlist' : '/apply')
                 }

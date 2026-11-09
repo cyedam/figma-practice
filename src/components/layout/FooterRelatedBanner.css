@@ -77,6 +77,17 @@
   text-decoration: underline;
 }
 
+/* 아직 동작이 없는 '배너 더보기': 글씨와 + 아이콘 모두 회색 (사용자 요청) */
+.footer-related__more.footer-related__more--disabled {
+  color: var(--color-text-disabled);
+  text-decoration: none;
+  cursor: default;
+}
+
+.footer-related__more--disabled .footer-related__icon {
+  background-color: var(--color-text-disabled);
+}
+
 /* 아래 줄: 인증 마크와 배너 창 (Figma: 하단로고, gap 8) */
 .footer-related__row {
   display: flex;

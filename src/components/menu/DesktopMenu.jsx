@@ -1,34 +1,38 @@
 import { useId, useState } from 'react'
 import Tab from './Tab'
+import { hasPath } from './menuData'
 import './DesktopMenu.css'
 
 /**
  * 데스크탑 메뉴 한 묶음 (Figma: 데스크탑메뉴)
  * title: 묶음 이름
- * items: 하위 메뉴 목록. [{ label, href }] 형태이며 menuData.js의 DESKTOP_MENUS를 쓴다.
+ * items: 하위 메뉴 목록. [{ label, path }] 형태이며 path가 없으면 회색 비활성으로 보인다. menuData.js의 DESKTOP_MENUS를 쓴다.
  * defaultOpen: 처음에 펼쳐 둘지 여부
+ * 하위 메뉴 중 이동할 화면(path)이 하나도 없으면 묶음 제목도 회색 비활성으로 보이고 펼쳐지지 않는다.
  * onItemClick: 하위 메뉴를 누르면 그 항목을 받아 실행한다.
  */
 function DesktopMenu({ title, items, defaultOpen = false, onItemClick }) {
   const [open, setOpen] = useState(defaultOpen)
   const listId = useId()
+  const disabled = !hasPath(items)
 
   return (
     <div className="desktop-menu">
       <Tab
         variant="gnb-sub"
         icon={open ? 'minus' : 'plus'}
-        aria-expanded={open}
+        disabled={disabled}
+        aria-expanded={open && !disabled}
         aria-controls={listId}
         onClick={() => setOpen(!open)}
       >
         {title}
       </Tab>
-      {open && (
+      {open && !disabled && (
         <ul className="desktop-menu__list" id={listId}>
           {items.map((item) => (
             <li key={item.label}>
-              <Tab variant="gnb-leaf" href={item.href} onClick={() => onItemClick?.(item)}>
+              <Tab variant="gnb-leaf" disabled={!item.path} onClick={() => onItemClick?.(item)}>
                 {item.label}
               </Tab>
             </li>

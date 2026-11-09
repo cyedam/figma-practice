@@ -109,3 +109,17 @@
     min-width: var(--program-card-min-width);
   }
 }
+
+/* 아직 신청 화면이 없는 프로그램: 글씨와 버튼을 회색으로 (사용자 요청) */
+.program-card--inactive .program-card__title,
+.program-card--inactive .program-card__details {
+  color: var(--color-text-disabled);
+}
+
+.program-card--inactive .button,
+.program-card--inactive .button:hover {
+  border-color: var(--color-text-disabled);
+  background-color: var(--color-bg-page);
+  color: var(--color-text-disabled);
+  cursor: default;
+}

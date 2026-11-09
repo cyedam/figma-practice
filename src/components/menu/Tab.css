@@ -166,3 +166,14 @@
 .tab--mobile-search .tab__label {
   flex: 1;
 }
+
+/* 아직 동작이 없는 항목: 회색 글씨, 누를 수 없음 (사용자 요청) */
+.tab.tab--disabled,
+.tab.tab--disabled:hover {
+  --tab-color: var(--color-text-disabled);
+  cursor: default;
+}
+
+.tab--disabled .tab__icon {
+  background-color: var(--color-text-disabled);
+}

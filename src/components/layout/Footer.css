@@ -65,6 +65,13 @@
   text-decoration: underline;
 }
 
+/* 아직 동작이 없는 글씨: 회색, 누를 수 없음 (사용자 요청) */
+.footer .footer__disabled {
+  color: var(--color-text-disabled);
+  text-decoration: none;
+  cursor: default;
+}
+
 .footer__copyright {
   font-size: var(--text-size-13);
   line-height: var(--line-height-150);

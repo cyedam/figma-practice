@@ -1,5 +1,6 @@
 // 메뉴 내용. Figma의 데스크탑메뉴, 모바일메뉴 문구를 그대로 옮겼다.
-// 이동할 주소가 정해지면 항목에 href를 추가한다. 예: { label: '온라인접수', href: '/apply' }
+// path: 누르면 이동할 화면 주소. path가 없는 항목은 아직 동작이 없어서 회색 비활성으로 보인다. (사용자 요청)
+// 예: { label: '온라인접수', path: '/programs' }
 
 export const DESKTOP_MENUS = [
   {
@@ -46,7 +47,10 @@ export const DESKTOP_MENUS = [
   },
   {
     title: '통합 온라인접수',
-    items: [{ label: '온라인접수' }, { label: '접수내역확인' }],
+    items: [
+      { label: '온라인접수', path: '/programs' },
+      { label: '접수내역확인', path: '/lookup' },
+    ],
   },
   {
     title: '소개',
@@ -122,7 +126,7 @@ export const MOBILE_MENUS = [
       { label: '재단소식' },
       { label: '프레스룸' },
       { label: '자료실' },
-      { label: '통합 온라인접수', hasChildren: true },
+      { label: '통합 온라인접수', hasChildren: true, path: '/programs' },
       { label: '열린의견' },
       { label: '경영공시' },
     ],
@@ -149,3 +153,9 @@ export const MOBILE_MENUS = [
     items: [{ label: '문화관광해설사' }],
   },
 ]
+
+// 묶음 안에 이동할 화면(path)이 하나라도 있는지 알려 준다.
+// 없으면 그 묶음 제목은 펼칠 수 있어도 회색 비활성으로 보인다. (사용자 요청: 열린공간 > 통합 온라인접수만 쓴다)
+export function hasPath(items = []) {
+  return items.some((item) => item.path)
+}

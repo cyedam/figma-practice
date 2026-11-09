@@ -20,13 +20,6 @@ const LOCATION_TABS = [
 // 데스크탑 상위 메뉴 경로 (Figma: 상위메뉴)
 const LOCATION_CRUMBS = ['열린공간', '통합 온라인접수']
 
-// 메뉴 항목 중 이동할 화면이 있는 것
-const MENU_PATHS = {
-  '통합 온라인접수': '/programs',
-  온라인접수: '/programs',
-  접수내역확인: '/lookup',
-}
-
 /**
  * 화면 공통 틀: 헤더, 위치 탭, 내용, 맨 아래 버튼, 푸터, 전체 메뉴
  * backTo: 이전 버튼을 눌렀을 때 갈 주소. 없으면 이전 버튼을 숨긴다.
@@ -54,7 +47,8 @@ function ScreenLayout({ backTo, activeTab, title, actions, flush = false, onLeav
   const handleLogo = () => leaveTo('/')
 
   function handleMenuItem(item) {
-    const path = MENU_PATHS[item.label]
+    // 이동할 화면은 menuData.js 항목의 path에 적혀 있다.
+    const path = item.path
     if (!path) return
     setMenuOpen(false)
     setDesktopMenuOpen(false)
@@ -124,7 +118,8 @@ function ScreenLayout({ backTo, activeTab, title, actions, flush = false, onLeav
             <span className="screen__menu-close-icon" aria-hidden="true" />
           </button>
         </div>
-        <Tab variant="mobile-search" icon="search">
+        {/* 검색은 아직 동작이 없어 회색 비활성으로 둔다. (사용자 요청) */}
+        <Tab variant="mobile-search" icon="search" disabled>
           검색
         </Tab>
         {MOBILE_MENUS.map((menu) => (

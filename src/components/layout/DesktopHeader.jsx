@@ -2,7 +2,7 @@ import { useEffect, useId, useRef } from 'react'
 import logo from '../../assets/images/logo-wide.png'
 import DesktopMenu from '../menu/DesktopMenu'
 import Tab from '../menu/Tab'
-import { DESKTOP_MENUS, GNB_MENUS, MOBILE_MENUS } from '../menu/menuData'
+import { DESKTOP_MENUS, GNB_MENUS, hasPath, MOBILE_MENUS } from '../menu/menuData'
 import './DesktopHeader.css'
 
 // 전체메뉴 칸: 모바일 메뉴의 묶음과 같고, '기타'는 Figma처럼 뺀다.
@@ -66,13 +66,14 @@ function DesktopHeader({ menuOpen, onMenuToggle, onMenuClose, onLogoClick, onMen
             >
               <span className="desktop-header__icon desktop-header__icon--menu" aria-hidden="true" />
             </button>
-            <button type="button" className="desktop-header__tool" aria-label="검색">
+            {/* 검색·언어 선택은 아직 동작이 없어 회색 비활성으로 둔다. (사용자 요청) */}
+            <button type="button" className="desktop-header__tool" aria-label="검색" disabled>
               <span
                 className="desktop-header__icon desktop-header__icon--search"
                 aria-hidden="true"
               />
             </button>
-            <button type="button" className="desktop-header__tool" aria-label="언어 선택">
+            <button type="button" className="desktop-header__tool" aria-label="언어 선택" disabled>
               <span
                 className="desktop-header__icon desktop-header__icon--language"
                 aria-hidden="true"
@@ -82,10 +83,12 @@ function DesktopHeader({ menuOpen, onMenuToggle, onMenuClose, onLogoClick, onMen
         </div>
 
         <nav className="desktop-header__gnb" aria-label="주 메뉴">
-          {GNB_MENUS.map((label) => (
+          {/* 메인 메뉴는 MOBILE_MENUS와 같은 순서다. 이동할 화면이 있는 묶음(열린공간)만 누를 수 있다. */}
+          {GNB_MENUS.map((label, index) => (
             <Tab
               key={label}
               variant="gnb-main"
+              disabled={!hasPath(MOBILE_MENUS[index]?.items)}
               aria-expanded={menuOpen}
               aria-controls={panelId}
               onClick={onMenuToggle}
@@ -109,7 +112,11 @@ function DesktopHeader({ menuOpen, onMenuToggle, onMenuClose, onLogoClick, onMen
                         onItemClick={onMenuItem}
                       />
                     ) : (
-                      <Tab variant="gnb-sub" href={item.href} onClick={() => onMenuItem?.(item)}>
+                      <Tab
+                        variant="gnb-sub"
+                        disabled={!item.path}
+                        onClick={() => onMenuItem?.(item)}
+                      >
                         {item.label}
                       </Tab>
                     )}
