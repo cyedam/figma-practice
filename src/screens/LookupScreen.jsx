@@ -5,7 +5,7 @@ import LookupToggle from '../components/button/LookupToggle'
 import ActionBox from '../components/card/ActionBox'
 import Input from '../components/input/Input'
 import PasswordInput from '../components/input/PasswordInput'
-import ConfirmModal from '../components/modal/ConfirmModal'
+import PhoneModal from './PhoneModal'
 import { SAMPLE_RESERVATION_NUMBER } from './programData'
 import ScreenLayout from './ScreenLayout'
 import './LookupScreen.css'
@@ -67,24 +67,13 @@ function LookupScreen() {
             title="본인확인 인증 방법"
             actions={[
               { label: '전화문의', icon: 'phone', onClick: () => setPhoneModalOpen(true) },
-              { label: '문자인증', icon: 'mail' },
+              { label: '문자인증', icon: 'mail', onClick: () => navigate('/lookup/sms') },
             ]}
           />
         </div>
       </div>
 
-      <ConfirmModal
-        open={phoneModalOpen}
-        onClose={() => setPhoneModalOpen(false)}
-        title={'재단 대표전화\n031-290-3600'}
-        description="운영시간 09:00 - 18:00"
-        secondaryLabel="닫기"
-        onSecondary={() => setPhoneModalOpen(false)}
-        primaryLabel="전화연결"
-        onPrimary={() => {
-          window.location.href = 'tel:0312903600'
-        }}
-      />
+      <PhoneModal open={phoneModalOpen} onClose={() => setPhoneModalOpen(false)} />
     </ScreenLayout>
   )
 }

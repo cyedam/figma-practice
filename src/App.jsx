@@ -3,8 +3,10 @@ import ApplyCompleteScreen from './screens/ApplyCompleteScreen'
 import ApplyScreen from './screens/ApplyScreen'
 import LookupScreen from './screens/LookupScreen'
 import MainScreen from './screens/MainScreen'
+import PasswordResetScreen from './screens/PasswordResetScreen'
 import ProgramListScreen from './screens/ProgramListScreen'
 import ReservationScreen from './screens/ReservationScreen'
+import SmsAuthScreen from './screens/SmsAuthScreen'
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <Route path="/apply/complete" element={<ApplyCompleteScreen />} />
       <Route path="/lookup" element={<LookupScreen />} />
       <Route path="/lookup/result" element={<ReservationScreen />} />
+      <Route path="/lookup/sms" element={<SmsAuthScreen />} />
+      <Route path="/lookup/reset" element={<PasswordResetScreen />} />
     </Routes>
   )
 }

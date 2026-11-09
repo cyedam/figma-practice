@@ -69,7 +69,19 @@ export const DESKTOP_MENUS = [
   },
 ]
 
+// 데스크탑 헤더의 메인 메뉴 (Figma: 헤더-메인메뉴)
+export const GNB_MENUS = [
+  '수원화성관광',
+  '축제·행사·교육',
+  '문화사업',
+  '문화시설',
+  '열린공간',
+  '문화기부ssac',
+  '재단소개',
+]
+
 // hasChildren: Figma에서 + 아이콘이 있는 항목
+// 데스크탑 전체메뉴도 이 목록을 칸별로 쓴다. ('기타' 제외, hasChildren 항목은 DESKTOP_MENUS의 하위 메뉴를 펼친다.)
 export const MOBILE_MENUS = [
   {
     title: '수원화성관광',
@@ -87,7 +99,7 @@ export const MOBILE_MENUS = [
   {
     title: '문화사업',
     items: [
-      { label: '문화사업안내' },
+      { label: '문화사업 안내' },
       { label: '지원사업 안내' },
       { label: '문화도시 수원' },
       { label: '수원문화지도' },

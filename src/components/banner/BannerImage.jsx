@@ -11,7 +11,8 @@ function BannerImage({ landscape, portrait, alt }) {
   return (
     <picture className="banner-image">
       <source media="(min-width: 1440px)" srcSet={landscape} />
-      <img src={portrait} alt={alt} />
+      {/* 배너를 끌 때 브라우저가 이미지만 따로 끌지 않게 한다. */}
+      <img src={portrait} alt={alt} draggable={false} />
     </picture>
   )
 }

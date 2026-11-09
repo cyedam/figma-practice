@@ -28,6 +28,18 @@ span.header__button {
   height: 100%;
 }
 
+.header__button--logo picture {
+  display: block;
+  height: 100%;
+}
+
+/* 태블릿: 가로 로고 (Figma: 로고 129×32) */
+@media (min-width: 768px) {
+  .header__button--logo {
+    width: var(--logo-width-wide);
+  }
+}
+
 /* 아이콘: 파일의 모양만 쓰고, 색은 토큰으로 입힌다. */
 .header__icon {
   display: block;

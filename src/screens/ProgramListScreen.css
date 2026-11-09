@@ -4,9 +4,50 @@
   margin-top: var(--gap-s);
 }
 
+/* 카드는 최대 너비보다 화면이 넓으면 가운데에 모은다. */
 .program-list__cards {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--gap-l);
   padding: 0 var(--device-margin) var(--gap-l);
+}
+
+/* 태블릿: 회색 검색영역에 좌우 여백을 두고, 카드는 2칸 */
+@media (min-width: 768px) {
+  .program-list__search {
+    padding: 0 var(--device-margin);
+  }
+
+  .program-list {
+    margin-top: var(--gap-l);
+  }
+
+  .program-list__cards {
+    display: grid;
+    /* 칸은 카드 최대 너비(400px)까지만 늘어나고, 두 칸 묶음을 가운데에 둔다. */
+    grid-template-columns: repeat(2, minmax(0, var(--program-card-max-width-tablet)));
+    justify-content: center;
+  }
+
+  .program-list__cards .program-card--vertical {
+    min-width: var(--program-card-min-width-tablet);
+    max-width: var(--program-card-max-width-tablet);
+  }
+}
+
+/* 데스크탑: 검색영역 아래 8px, 카드는 3칸 */
+@media (min-width: 1440px) {
+  .program-list {
+    margin-top: var(--gap-s);
+  }
+
+  .program-list__cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .program-list__cards .program-card--vertical {
+    min-width: var(--program-card-min-width);
+    max-width: var(--program-card-max-width);
+  }
 }

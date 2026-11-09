@@ -22,6 +22,19 @@ import upcycling from '../assets/images/program-upcycling.jpg'
 
 export const MOONLIGHT_IMAGE = moonlight
 
+// 신청 화면의 프로그램 정보 (Figma: 태블릿·데스크탑 접수탭의 프로그램 카드)
+export const MOONLIGHT_INFO = {
+  target: '미취학 아동 및 만 75세 이상 불가',
+  startDate: '2026.04.27',
+  endDate: '2026.11.01',
+  selection: '선착순',
+  capacity: '회당 20',
+  reservation: '인터넷',
+  fee: '무료',
+  team: '관광부 관광육성팀',
+  phone: '031-290-3624',
+}
+
 // value는 프로그램 제목 앞의 [구분]과 같다. all은 전체다.
 export const PROGRAM_CATEGORIES = [
   { value: 'all', label: '전체' },

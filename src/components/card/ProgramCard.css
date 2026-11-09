@@ -91,6 +91,19 @@
   max-width: 100%;
 }
 
+/*
+ * 태블릿부터 가로 카드: 이미지가 남는 폭을 채운다.
+ * 정보 옆에 이미지 최소 폭(248px)이 들어가지 않으면 정보가 아래로 내려간다.
+ * (Figma: 태블릿은 이미지 아래 정보, 데스크탑은 이미지 오른쪽 정보)
+ */
+@media (min-width: 768px) {
+  .program-card--horizontal .program-card__image {
+    flex: 1 1 0;
+    width: auto;
+    min-width: var(--program-card-image-min-width);
+  }
+}
+
 @media (min-width: 768px) {
   .program-card--vertical {
     min-width: var(--program-card-min-width);

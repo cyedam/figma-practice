@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import BannerControls from './BannerControls'
 import BannerDots from './BannerDots'
 import BannerImage from './BannerImage'
@@ -9,6 +9,10 @@ import './Banner.css'
 
 // tokens.css의 --banner-slide-duration과 같은 값이어야 한다.
 const SLIDE_DURATION_MS = 500
+// 이미지 폭의 이 비율 이상 끌면 옆 배너로 넘긴다. 덜 끌면 제자리로 돌아온다.
+const DRAG_THRESHOLD = 0.15
+// 이만큼(px) 움직이기 전까지는 누르기(클릭)로 본다.
+const DRAG_START_PX = 5
 
 function prefersReducedMotion() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -27,7 +31,11 @@ function prefersReducedMotion() {
  *   목록 앞뒤에 마지막·첫 배너를 복제해 두고, 복제 칸까지 움직인 뒤
  *   움직임 없이 진짜 칸으로 옮긴다. position은 복제 칸을 포함한 위치다.
  *
- * 자동 넘김은 정지 버튼, 마우스 올림, 키보드 초점이 있을 때 멈춘다.
+ * 자동 넘김은 정지 버튼, 마우스 올림, 키보드 초점, 끄는 중일 때 멈춘다.
+ *
+ * 끌어서 넘기기 (사용자 요청)
+ *   이미지를 마우스나 손가락으로 좌우로 끌면 배너가 따라 움직이고,
+ *   폭의 15% 이상 끌고 놓으면 이전·다음 배너로 넘어간다.
  */
 function Banner({ banners = BANNERS, interval = 2000 }) {
   const total = banners.length
@@ -38,9 +46,13 @@ function Banner({ banners = BANNERS, interval = 2000 }) {
   const [paused, setPaused] = useState(false)
   const [hovering, setHovering] = useState(false)
   const [focused, setFocused] = useState(false)
+  // 끄는 중인 거리. 이미지 폭에 대한 비율(%)이다.
+  const [dragPercent, setDragPercent] = useState(0)
+  const [dragging, setDragging] = useState(false)
+  const dragRef = useRef(null)
 
   const currentIndex = (position - 1 + total) % total
-  const isStopped = paused || hovering || focused
+  const isStopped = paused || hovering || focused || dragging
 
   function move(amount) {
     const reduced = prefersReducedMotion()
@@ -71,8 +83,56 @@ function Banner({ banners = BANNERS, interval = 2000 }) {
     }
   }
 
+  function handlePointerDown(event) {
+    if (total < 2 || (event.pointerType === 'mouse' && event.button !== 0)) return
+    const width = event.currentTarget.offsetWidth
+    dragRef.current = { startX: event.clientX, width, moved: false }
+
+    function handleMove(moveEvent) {
+      const drag = dragRef.current
+      const distance = moveEvent.clientX - drag.startX
+      if (!drag.moved && Math.abs(distance) < DRAG_START_PX) return
+      if (!drag.moved) {
+        drag.moved = true
+        setDragging(true)
+        setAnimate(false)
+      }
+      setDragPercent((distance / drag.width) * 100)
+    }
+
+    function handleUp(upEvent) {
+      window.removeEventListener('pointermove', handleMove)
+      window.removeEventListener('pointerup', handleUp)
+      window.removeEventListener('pointercancel', handleUp)
+      const drag = dragRef.current
+      if (!drag.moved) return
+      const ratio = (upEvent.clientX - drag.startX) / drag.width
+      setDragging(false)
+      setDragPercent(0)
+      if (Math.abs(ratio) >= DRAG_THRESHOLD && upEvent.type === 'pointerup') {
+        move(ratio < 0 ? 1 : -1)
+      } else {
+        // 덜 끌었으면 제자리로 부드럽게 돌아온다.
+        setAnimate(!prefersReducedMotion())
+      }
+    }
+
+    window.addEventListener('pointermove', handleMove)
+    window.addEventListener('pointerup', handleUp)
+    window.addEventListener('pointercancel', handleUp)
+  }
+
+  // 끈 뒤에는 '다음 배너' 버튼의 누르기가 실행되지 않게 막는다.
+  function handleClickCapture(event) {
+    if (dragRef.current?.moved) {
+      event.preventDefault()
+      event.stopPropagation()
+      dragRef.current = null
+    }
+  }
+
   const trackClass = `banner__track${animate ? ' banner__track--animate' : ''}`
-  const trackStyle = { transform: `translateX(-${position * 100}%)` }
+  const trackStyle = { transform: `translateX(${dragPercent - position * 100}%)` }
 
   return (
     <section
@@ -115,7 +175,11 @@ function Banner({ banners = BANNERS, interval = 2000 }) {
         />
       </div>
 
-      <div className="banner__view banner__view--image">
+      <div
+        className={`banner__view banner__view--image${dragging ? ' banner__view--dragging' : ''}`}
+        onPointerDown={handlePointerDown}
+        onClickCapture={handleClickCapture}
+      >
         <div className={trackClass} style={trackStyle} onTransitionEnd={handleTransitionEnd}>
           {slides.map((banner, index) => (
             <div

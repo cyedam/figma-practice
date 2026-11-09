@@ -13,3 +13,14 @@
   min-width: 0;
   max-width: none;
 }
+
+/* 태블릿부터: 버튼을 가운데에 모으고 최대 너비(200px)를 지킨다. */
+@media (min-width: 768px) {
+  .bottom-actions {
+    justify-content: center;
+  }
+
+  .bottom-actions .button {
+    max-width: var(--button-max-width-l);
+  }
+}

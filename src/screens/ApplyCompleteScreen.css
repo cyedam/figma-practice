@@ -7,26 +7,6 @@
   padding: var(--gap-m) var(--device-margin);
 }
 
-.apply-complete__message {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--gap-s);
-  text-align: center;
-}
-
-.apply-complete__icon {
-  width: var(--complete-icon-size);
-  height: var(--complete-icon-size);
-  background-color: var(--color-primary);
-  -webkit-mask: url('../assets/icons/icon-complete.svg') center no-repeat;
-  mask: url('../assets/icons/icon-complete.svg') center no-repeat;
-}
-
-.apply-complete__title {
-  color: var(--color-text-heading);
-}
-
 .apply-complete__note {
   padding: 0 var(--gap-ss);
   color: var(--color-text-muted);
@@ -39,4 +19,31 @@
 
 .apply-complete__note-point {
   color: var(--color-text-heading);
+}
+
+/* 태블릿부터: 가운데 500px 칸에 모으고, 안내 글은 가운데 정렬 */
+@media (min-width: 768px) {
+  .apply-complete {
+    align-items: center;
+    /* Figma: 화면 아래 여백 24px + 버튼모음까지 24px */
+    padding-top: var(--gap-l);
+    padding-bottom: calc(var(--gap-l) * 2);
+  }
+
+  .apply-complete > .complete-summary__message,
+  .apply-complete > .screen__summary {
+    width: 100%;
+    max-width: var(--narrow-content-width);
+  }
+
+  .apply-complete__note {
+    text-align: center;
+  }
+}
+
+/* 데스크탑(Figma에는 완료 모달만 있음): 다른 데스크탑 화면처럼 윗부분과 48px 띄운다. */
+@media (min-width: 1440px) {
+  .apply-complete {
+    padding-top: calc(var(--gap-l) * 2);
+  }
 }

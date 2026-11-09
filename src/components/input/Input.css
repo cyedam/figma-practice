@@ -89,6 +89,39 @@
   background-color: var(--color-bg-surface);
 }
 
+/* 박스형 태블릿: 제목이 한 단계 크다. (Heading/H3) */
+@media (min-width: 768px) {
+  .input--box .input__label {
+    font-family: var(--heading-h3-font-family), var(--font-family-fallback);
+    font-size: var(--heading-h3-font-size);
+    font-weight: var(--heading-h3-font-weight);
+    line-height: var(--heading-h3-line-height);
+  }
+}
+
+/* 박스형 데스크탑: 회색 제목 줄 아래에 테두리 있는 흰 본문, 본문 글자는 Body/M */
+@media (min-width: 1440px) {
+  .input--box .input__label {
+    padding: var(--gap-m) var(--gap-l);
+    background-color: var(--color-bg-surface);
+    color: var(--color-text-primary);
+  }
+
+  .input--box .input__field {
+    padding: var(--gap-s) var(--gap-l);
+    border-color: var(--color-bg-surface);
+    border-radius: 0;
+    background-color: var(--color-bg-page);
+  }
+
+  .input--box .input__text {
+    font-family: var(--body-m-font-family), var(--font-family-fallback);
+    font-size: var(--body-m-font-size);
+    font-weight: var(--body-m-font-weight);
+    line-height: var(--body-m-line-height);
+  }
+}
+
 /* 숫자버튼: 제목 왼쪽, 인원 오른쪽 */
 .input--counter {
   flex-direction: row;

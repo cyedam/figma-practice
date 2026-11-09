@@ -263,6 +263,8 @@
   /* ===== 그림자 (Figma: Effect Styles) ===== */
   --shadow: 0 2px 10px 0 rgb(0 0 0 / 25%);
   --inner-shadow: inset 0 -2px 0 0 rgb(0 0 0 / 75%);
+  --shadow-soft: 0 2px 8px 0 rgb(0 0 0 / 15%); /* Figma에 없음, 사용자 요청: 드롭다운 목록의 연한 그림자 */
+  --shadow-soft-clip: -0.75rem; /* 12px, 그림자를 위쪽만 잘라 낼 때 좌우·아래 여유 */
 
   /* ===== 테두리 두께: Figma 변수에 없지만 버튼에서 쓰는 값 ===== */
   --border-width-1: 1px;
@@ -334,6 +336,10 @@
   --banner-controls-gap: 1.8125rem; /* 29px */
   --banner-dot-size: 0.5rem; /* 8px */
 
+  /* ===== 시트 움직임: Figma에 없어 사용자 요청으로 정한 값 (아래에서 위로 올라옴) ===== */
+  --sheet-slide-duration: 0.3s;
+  --sheet-slide-easing: ease-out;
+
   /* ===== 배너 움직임: Figma 프로토타입 값 ===== */
   --banner-slide-duration: 0.5s;
   --banner-slide-easing: ease-out;
@@ -347,6 +353,23 @@
 
   /* ===== 큰 아이콘 크기: 닫기, 이전, 다음, 메뉴, 로고 ===== */
   --icon-size-l: 2rem; /* 32px */
+
+  /* ===== 태블릿·데스크탑 화면 조립: Figma 변수에 없지만 태블릿·데스크탑 화면에서 쓰는 값 ===== */
+  --content-max-width: 75rem; /* 1200px, 데스크탑 내용 최대 너비 */
+  --narrow-content-width: 31.25rem; /* 500px, 완료·조회 화면 가운데 칸 */
+  --lookup-toggle-width: 20.5rem; /* 328px, 태블릿부터 조회버튼 */
+  --action-box-content-width: 23.25rem; /* 372px, 조회 화면 박스 안쪽 */
+  --main-banner-side: 4rem; /* 64px, 태블릿 메인 배너 양옆 색 띠 */
+  --apply-section-gap: 2.25rem; /* 36px, 태블릿 신청 화면 묶음 사이 */
+  --program-card-min-width-tablet: 21.625rem; /* 346px, 태블릿 세로카드 */
+  --program-card-max-width-tablet: 25rem; /* 400px, 태블릿 세로카드 */
+  --program-card-image-min-width: 15.5rem; /* 248px, 가로 카드 이미지 */
+  --reservation-summary-width: 27rem; /* 432px, 신청 내역 예약 정보 */
+  --reservation-image-max-width: 25.125rem; /* 402px, 데스크탑 신청 내역 이미지 */
+  --gnb-main-tab-width: 7.5rem; /* 120px, 데스크탑 메인 메뉴 한 칸 */
+  --logo-width-wide: 8.0625rem; /* 129px, 태블릿·데스크탑 가로 로고 */
+  --gnb-utility-height: 3rem; /* 48px, 데스크탑 로고 줄 */
+  --breadcrumb-gap: 0.3125rem; /* 5px, 데스크탑 상위 메뉴 */
 }
 
 /* 태블릿: 768px 이상 (Figma 모드: tablet) */
@@ -357,6 +380,7 @@
     --text-size-menu: var(--text-size-19);
     --text-size-submenu: var(--text-size-17);
     --device-margin: var(--spacing-24);
+    --menu-panel-width: 31.25rem; /* 500px, 태블릿 전체메뉴 */
   }
 }
 

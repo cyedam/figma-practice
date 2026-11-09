@@ -36,11 +36,13 @@ function ProgramListScreen() {
 
   return (
     <ScreenLayout backTo="/" activeTab="/programs">
-      <SearchArea
-        categoryOptions={PROGRAM_CATEGORIES}
-        onCategoryChange={(category) => setQuery({ ...query, category })}
-        onSearch={setQuery}
-      />
+      <div className="program-list__search">
+        <SearchArea
+          categoryOptions={PROGRAM_CATEGORIES}
+          onCategoryChange={(category) => setQuery({ ...query, category })}
+          onSearch={setQuery}
+        />
+      </div>
       <div className="program-list">
         <SearchCount category={isDefault ? '전체' : '검색결과'} count={results.length} />
         <div className="program-list__cards">

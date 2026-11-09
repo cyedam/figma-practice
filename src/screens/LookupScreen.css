@@ -20,3 +20,35 @@
 .lookup__help-title {
   color: var(--color-text-primary);
 }
+
+/* 태블릿부터: 가운데 500px 칸, 조회버튼은 328px */
+@media (min-width: 768px) {
+  .lookup {
+    align-items: center;
+    /* Figma: 화면 아래 여백 24px + 버튼모음까지 24px */
+    padding-top: var(--gap-l);
+    padding-bottom: calc(var(--gap-l) * 2);
+  }
+
+  .lookup > * {
+    width: 100%;
+    max-width: var(--narrow-content-width);
+  }
+
+  .lookup > .lookup__toggle {
+    max-width: var(--lookup-toggle-width);
+    padding: 0;
+  }
+
+  /* 박스 안의 제목과 버튼은 가운데 372px 칸에 모은다. */
+  .lookup .action-box {
+    padding-inline: calc((100% - var(--action-box-content-width)) / 2);
+  }
+}
+
+/* 데스크탑: 윗부분과 조회버튼 사이 48px */
+@media (min-width: 1440px) {
+  .lookup {
+    padding-top: calc(var(--gap-l) * 2);
+  }
+}

@@ -12,8 +12,10 @@
   line-height: var(--body-m-line-height);
 }
 
+/* 건수 숫자는 Figma처럼 19px로 키워 강조한다. */
 .search-count__number {
   color: var(--color-point);
+  font-size: var(--text-size-19);
   font-weight: var(--text-weight-700);
   text-decoration: underline;
 }

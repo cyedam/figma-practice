@@ -7,13 +7,100 @@
   padding: 0 var(--device-margin);
 }
 
+.reservation__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+}
+
+/* 안내 글은 사용자 요청으로 가로를 꽉 채운다. (Figma 모바일은 313px 고정) */
 .reservation__notices {
   display: flex;
   flex-direction: column;
   gap: var(--gap-l);
-  max-width: var(--notice-width);
 }
 
 .reservation__notices .input__label {
   color: var(--color-primary);
+}
+
+/* 예약 변경: 달력·시간·인원 묶음과 취소·저장 버튼 (Figma 시안 없음, 사용자 요청) */
+.reservation__edit {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+}
+
+/* 초점은 화면 낭독기용이라 테두리를 그리지 않는다. */
+.reservation__edit:focus {
+  outline: none;
+}
+
+.reservation__change {
+  display: flex;
+  gap: var(--gap-s);
+}
+
+/* 태블릿: [예약 정보 | 이미지] 한 줄, 안내 글은 전체 너비 */
+@media (min-width: 768px) {
+  .reservation {
+    gap: var(--gap-l);
+  }
+
+  .reservation__info {
+    flex-direction: row;
+    gap: var(--gap-l);
+  }
+
+  .reservation__info > .screen__summary {
+    flex: none;
+    width: var(--reservation-summary-width);
+  }
+
+  /* 사용자 요청: Figma와 달리 이미지를 왼쪽, 예약 정보를 오른쪽에 둔다. (화면 코드 순서 그대로) */
+  .reservation__info > .program-card {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* 이미지는 예약 정보와 같은 높이로 채운다. */
+  .reservation__info .program-card__image {
+    height: 100%;
+  }
+
+  /* 예약 변경 중에는 왼쪽이 길어지므로 이미지는 기본 높이(250px)로 위에 둔다. */
+  .reservation__info--editing > .program-card {
+    align-self: flex-start;
+  }
+
+  .reservation__info--editing .program-card__image {
+    height: var(--program-card-image-height);
+  }
+
+  .reservation .list-box {
+    font-family: var(--body-m-font-family), var(--font-family-fallback);
+    font-size: var(--body-m-font-size);
+    font-weight: var(--body-m-font-weight);
+    line-height: var(--body-m-line-height);
+  }
+
+  .reservation__change {
+    justify-content: flex-end;
+  }
+}
+
+/* 데스크탑: 이미지는 402px까지만 늘어나고, 안내 글 제목은 회색 줄 */
+@media (min-width: 1440px) {
+  /* Figma: 체크박스와 버튼모음 사이 48px */
+  .reservation {
+    padding-bottom: var(--gap-l);
+  }
+
+  .reservation__info > .program-card {
+    max-width: var(--reservation-image-max-width);
+  }
+
+  .reservation__notices .input__label {
+    color: var(--color-text-primary);
+  }
 }

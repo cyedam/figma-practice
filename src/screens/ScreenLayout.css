@@ -34,6 +34,28 @@
   border-radius: 0;
 }
 
+/* 전체메뉴는 Figma 프로토타입처럼 오른쪽에서 밀려 들어온다. (Move in 0.3초) */
+@keyframes screen-menu-in {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.modal.screen__menu[open] {
+  animation: screen-menu-in var(--sheet-slide-duration) var(--sheet-slide-easing);
+}
+
+/* 움직임을 줄이는 설정을 켠 사용자에게는 움직이지 않는다. */
+@media (prefers-reduced-motion: reduce) {
+  .modal.screen__menu[open] {
+    animation: none;
+  }
+}
+
 .screen__menu-top {
   display: flex;
   justify-content: flex-end;
@@ -78,4 +100,61 @@
 /* 요약 제목 아래 목록은 Figma처럼 위 선이 없다. */
 .screen__summary .list-box {
   border-top: 0;
+}
+
+/* 화면 폭에 따라 하나만 보여 줄 때 쓴다. */
+.screen__wide-only {
+  display: none;
+}
+
+/* 데스크탑 헤더는 1440px부터 보인다. */
+.screen__top > .desktop-header {
+  display: none;
+}
+
+/* 태블릿: 윗부분과 내용 사이 24px */
+@media (min-width: 768px) {
+  .screen {
+    gap: var(--gap-l);
+  }
+
+  .screen--flush {
+    gap: 0;
+  }
+
+  /* 사용자 요청: 내용이 짧아도 아래 버튼은 화면 맨 아래가 아니라 내용 바로 아래에 둔다. */
+  .screen__content {
+    flex: none;
+  }
+
+  .screen__wide-only {
+    display: block;
+  }
+
+  .screen__mobile-only {
+    display: none;
+  }
+}
+
+/* 데스크탑: 데스크탑 헤더로 바꾸고, 내용은 가운데 1200px 안에 둔다. */
+@media (min-width: 1440px) {
+  .screen__top > .header {
+    display: none;
+  }
+
+  .screen__top > .desktop-header {
+    display: block;
+  }
+
+  .screen__content,
+  .screen > .bottom-actions {
+    width: 100%;
+    max-width: calc(var(--content-max-width) + var(--device-margin) * 2);
+    margin-inline: auto;
+  }
+
+  /* Figma: 데스크탑은 윗부분과 내용 사이가 48px (화면 간격 24px + 화면 안 여백 24px) */
+  .screen:not(.screen--flush) > .screen__content {
+    padding-top: var(--gap-l);
+  }
 }

@@ -58,7 +58,16 @@
   left: 0;
   z-index: 1;
   width: 100%;
+  border: var(--border-width-half) solid var(--color-border);
   background-color: var(--color-bg-page);
+  /* 사용자 요청: 0.5px 테두리와 좌우·아래쪽 연한 그림자. 위쪽 그림자는 잘라 낸다. */
+  box-shadow: var(--shadow-soft);
+  clip-path: inset(0 var(--shadow-soft-clip) var(--shadow-soft-clip));
+}
+
+/* 마지막 항목의 아래 선은 목록 테두리와 겹치므로 뺀다. */
+.dropdown__list li:last-child .dropdown__option {
+  border-bottom: 0;
 }
 
 /* 항목: Figma의 데스크탑. 모바일 목록은 SelectSheet가 맡는다. */

@@ -24,10 +24,54 @@
   background-color: var(--color-grey-250);
 }
 
+/*
+ * 열릴 때 아래에서 위로 올라오는 움직임 (Figma에 없음, 사용자 요청)
+ * 모바일은 모든 모달이 아래 시트라 모두 올라오고, 태블릿부터는 시트(sheet)만 올라온다.
+ */
+@keyframes modal-sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes modal-backdrop-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.modal[open] {
+  animation: modal-sheet-up var(--sheet-slide-duration) var(--sheet-slide-easing);
+}
+
+.modal[open]::backdrop {
+  animation: modal-backdrop-in var(--sheet-slide-duration) var(--sheet-slide-easing);
+}
+
 /* 태블릿부터 시트가 아닌 모달은 화면 가운데에 뜬다. */
 @media (min-width: 768px) {
   .modal:not(.modal--sheet) {
     margin: auto;
     border-radius: var(--radius-m);
+  }
+
+  .modal:not(.modal--sheet)[open] {
+    animation: none;
+  }
+}
+
+/* 움직임을 줄이는 설정을 켠 사용자에게는 움직이지 않는다. */
+@media (prefers-reduced-motion: reduce) {
+  .modal[open],
+  .modal[open]::backdrop {
+    animation: none;
   }
 }
