@@ -25,6 +25,7 @@
 - Vite
 - JavaScript
 - 기본 CSS
+- 화면 이동: react-router (사용자 승인 후 설치)
 - 린터: oxlint
 
 아래 작업은 사용자의 승인 없이 하지 않는다.
@@ -102,9 +103,8 @@ npm run lint     # 코드 검사
 ```text
 docs/PRD.md          요구사항
 index.html           HTML 진입 파일
-src/main.jsx         앱 시작점
-src/App.jsx          최상위 화면
-src/App.css          App 스타일
+src/main.jsx         앱 시작점 (BrowserRouter로 화면 이동을 켬)
+src/App.jsx          주소별 화면 연결 (Routes)
 src/index.css        전역 기본 스타일 (styles 폴더의 파일을 불러옴)
 src/styles/          tokens.css(디자인 토큰), reset.css, base.css
 src/assets/icons/    아이콘
@@ -116,10 +116,30 @@ src/components/      컴포넌트 (종류별 폴더)
   calendar/          달력
   card/              카드, 뱃지, 정보 목록, 박스
   input/             입력 칸, 비밀번호, 인원, 체크박스, 드롭다운
+  layout/            헤더, 위치 탭, 화면 아래 버튼 영역
   menu/              탭, 데스크탑·모바일 메뉴
   modal/             모달, 시트
   search/            검색영역, 검색 칸, 검색 건수
+src/screens/         화면 (컴포넌트를 조립한 페이지)
+  ScreenLayout       화면 공통 틀 (헤더, 위치 탭, 아래 버튼, 전체 메뉴)
+  *Screen            화면별 파일
+  programData.js     프로그램 목록과 안내 문구
+  scheduleData.js    신청 일정
+  validation.js      입력값 검사
 ```
+
+화면 주소:
+
+| 주소 | 화면 |
+| --- | --- |
+| `/` | 메인 |
+| `/programs` | 프로그램 목록 |
+| `/apply` | 신청 (`?mode=waitlist`면 대기 신청) |
+| `/apply/complete` | 신청 완료 |
+| `/lookup` | 접수 조회 |
+| `/lookup/result` | 신청 내역 |
+| `/lookup/sms` | 문자인증 |
+| `/lookup/reset` | 비밀번호 재설정 |
 
 ## 5. 안전 규칙
 
