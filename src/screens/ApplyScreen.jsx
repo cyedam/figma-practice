@@ -9,7 +9,6 @@ import Input from '../components/input/Input'
 import PasswordInput from '../components/input/PasswordInput'
 import Tab from '../components/menu/Tab'
 import ConfirmModal from '../components/modal/ConfirmModal'
-import useIsDesktop from '../hooks/useIsDesktop'
 import useIsMobile from '../hooks/useIsMobile'
 import ApplyCompleteModal from './ApplyCompleteModal'
 import NoticeText from './NoticeText'
@@ -62,7 +61,6 @@ const FIELD_ORDER = ['name', 'phone', 'password', 'passwordCheck']
 function ApplyScreen() {
   const navigate = useNavigate()
   const isMobile = useIsMobile()
-  const isDesktop = useIsDesktop()
   const [searchParams] = useSearchParams()
   const [date, setDate] = useState({
     year: YEAR,
@@ -260,11 +258,8 @@ function ApplyScreen() {
         onSecondary={() => setModal('')}
         primaryLabel={isWaiting ? '대기 신청하기' : '최종 신청하기'}
         primaryVariant={isWaiting ? 'special-l' : 'main-s'}
-        onPrimary={() => {
-          // 데스크탑 Figma는 완료 화면 대신 완료 모달을 띄운다.
-          if (isDesktop) setModal('complete')
-          else navigate('/apply/complete', { state: { rows } })
-        }}
+        // 모든 폭에서 완료 화면 대신 완료 모달을 띄운다. (사용자 요청, Figma는 데스크탑만 모달)
+        onPrimary={() => setModal('complete')}
       />
       <ApplyCompleteModal
         open={modal === 'complete'}

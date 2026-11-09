@@ -5,8 +5,9 @@ import ApplyCompleteSummary from './ApplyCompleteSummary'
 import './ApplyCompleteModal.css'
 
 /**
- * 데스크탑 신청 완료 모달 (Figma: 데스크탑-최종확인모달)
- * 데스크탑에서는 완료 화면으로 넘어가지 않고 이 모달을 띄운다.
+ * 신청 완료 모달 (Figma: 데스크탑-최종확인모달)
+ * 모든 폭에서 완료 화면으로 넘어가지 않고 이 모달을 띄운다. (사용자 요청)
+ * 모바일은 Modal 기본값대로 아래에서 올라오는 시트로 보인다.
  * open, onClose: 열림 여부와 닫기 버튼을 누를 때 실행할 동작
  * rows: 신청 내역
  * onMorePrograms: '프로그램 더보기'를 누르면 실행한다.
