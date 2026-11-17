@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--gap-sm) var(--device-margin);
+  padding: var(--header-padding-block) var(--device-margin);
   background-color: var(--color-bg-page);
 }
 

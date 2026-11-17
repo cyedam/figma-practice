@@ -18,6 +18,7 @@
   align-items: flex-end;
   justify-content: space-between;
   height: var(--gnb-utility-height);
+  padding-bottom: var(--gnb-utility-padding-bottom);
 }
 
 .desktop-header__logo {

@@ -369,7 +369,9 @@
   --reservation-image-max-width: 25.125rem; /* 402px, 데스크탑 신청 내역 이미지 */
   --gnb-main-tab-width: 7.5rem; /* 120px, 데스크탑 메인 메뉴 한 칸 */
   --logo-width-wide: 8.0625rem; /* 129px, 태블릿·데스크탑 가로 로고 */
-  --gnb-utility-height: 3rem; /* 48px, 데스크탑 로고 줄 */
+  --gnb-utility-height: 3.5rem; /* 56px, 데스크탑 로고 줄 (사용자 요청) */
+  --gnb-utility-padding-bottom: var(--spacing-4); /* 4px, 데스크탑 로고 줄 아래 (사용자 요청) */
+  --header-padding-block: 1.125rem; /* 18px, 모바일·태블릿 헤더 위아래 (사용자 요청: 12px에서 6px씩 늘려 높이 68px) */
   --breadcrumb-gap: 0.3125rem; /* 5px, 데스크탑 상위 메뉴 */
 
   /* ===== 푸터: Figma 변수에 없지만 푸터에서 쓰는 값 (Figma: 요소-푸터섹션) ===== */
